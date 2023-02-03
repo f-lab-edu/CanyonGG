@@ -35,7 +35,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/match_win"
         app:layout_constraintVertical_bias="0.0"
-        tools:src="@drawable/Emblem_Diamond" />
+        tools:src="@drawable/emblem_platinum" />
 
     <ImageView
         android:id="@+id/spell_1"
@@ -44,7 +44,7 @@
         app:layout_constraintBottom_toTopOf="@id/spell_2"
         app:layout_constraintStart_toEndOf="@+id/champion"
         app:layout_constraintTop_toTopOf="@+id/champion"
-        tools:src="@drawable/Emblem_Gold" />
+        tools:src="@drawable/emblem_bronze" />
 
     <ImageView
         android:id="@+id/spell_2"
@@ -53,7 +53,7 @@
         app:layout_constraintBottom_toBottomOf="@id/champion"
         app:layout_constraintStart_toEndOf="@id/champion"
         app:layout_constraintTop_toBottomOf="@id/spell_1"
-        tools:src="@drawable/Emblem_Gold" />
+        tools:src="@drawable/emblem_challenger" />
 
     <ImageView
         android:id="@+id/main_rune"
@@ -62,7 +62,7 @@
         app:layout_constraintBottom_toBottomOf="@id/spell_1"
         app:layout_constraintStart_toEndOf="@id/spell_1"
         app:layout_constraintTop_toTopOf="@id/spell_1"
-        tools:src="@drawable/Emblem_Bronze" />
+        tools:src="@drawable/emblem_bronze" />
 
     <ImageView
         android:id="@+id/sub_rune"
@@ -71,7 +71,7 @@
         app:layout_constraintBottom_toBottomOf="@id/spell_2"
         app:layout_constraintStart_toEndOf="@id/spell_2"
         app:layout_constraintTop_toTopOf="@id/spell_2"
-        tools:src="@drawable/Emblem_Bronze" />
+        tools:src="@drawable/emblem_bronze" />
 
     <TextView
         android:id="@+id/kill"
@@ -118,7 +118,7 @@
         android:layout_height="20dp"
         app:layout_constraintStart_toStartOf="@id/champion"
         app:layout_constraintTop_toBottomOf="@id/champion"
-        tools:src="@drawable/Emblem_Challenger" />
+        tools:src="@drawable/emblem_challenger" />
 
     <ImageView
         android:id="@+id/item_2"
@@ -127,7 +127,7 @@
         app:layout_constraintBottom_toBottomOf="@id/item_1"
         app:layout_constraintStart_toEndOf="@id/item_1"
         app:layout_constraintTop_toTopOf="@id/item_1"
-        tools:src="@drawable/Emblem_Challenger" />
+        tools:src="@drawable/emblem_challenger" />
 
     <ImageView
         android:id="@+id/item_3"
@@ -136,7 +136,7 @@
         app:layout_constraintBottom_toBottomOf="@id/item_2"
         app:layout_constraintStart_toEndOf="@id/item_2"
         app:layout_constraintTop_toTopOf="@id/item_2"
-        tools:src="@drawable/Emblem_Challenger" />
+        tools:src="@drawable/emblem_challenger" />
 
     <ImageView
         android:id="@+id/item_4"
@@ -145,7 +145,7 @@
         app:layout_constraintBottom_toBottomOf="@id/item_3"
         app:layout_constraintStart_toEndOf="@id/item_3"
         app:layout_constraintTop_toTopOf="@id/item_3"
-        tools:src="@drawable/Emblem_Challenger" />
+        tools:src="@drawable/emblem_challenger" />
 
     <ImageView
         android:id="@+id/item_5"
@@ -154,7 +154,7 @@
         app:layout_constraintBottom_toBottomOf="@id/item_4"
         app:layout_constraintStart_toEndOf="@id/item_4"
         app:layout_constraintTop_toTopOf="@id/item_4"
-        tools:src="@drawable/Emblem_Challenger" />
+        tools:src="@drawable/emblem_challenger" />
 
     <ImageView
         android:id="@+id/item_6"
@@ -163,7 +163,7 @@
         app:layout_constraintBottom_toBottomOf="@id/item_5"
         app:layout_constraintStart_toEndOf="@id/item_5"
         app:layout_constraintTop_toTopOf="@id/item_5"
-        tools:src="@drawable/Emblem_Challenger" />
+        tools:src="@drawable/emblem_challenger" />
 
     <TextView
         android:id="@+id/match_type"

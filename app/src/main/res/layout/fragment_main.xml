@@ -31,6 +31,7 @@
                 android:visibility="@{vm.userInfo != null ? View.VISIBLE : View.GONE}"
                 bind:userKda="@{vm.userKda}"
                 bind:userLevel="@{vm.userInfo.summonerLevel}"
+                bind:userMatches="@{vm.userMatchCnt}"
                 bind:userLose="@{vm.userLoseCnt}"
                 bind:userName="@{vm.userInfo.name}"
                 bind:userThumbnail="@{vm.userInfo.profileIconId}"

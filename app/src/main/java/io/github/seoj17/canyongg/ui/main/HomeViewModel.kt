@@ -18,7 +18,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class MainViewModel @Inject constructor(
+class HomeViewModel @Inject constructor(
     private val savedStateHandle: SavedStateHandle,
     private val getUserInfoUseCase: GetUserInfoUseCase,
     private val getUserTierUseCase: GetUserTierUseCase,
@@ -26,7 +26,7 @@ class MainViewModel @Inject constructor(
 ) : ViewModel() {
 
     private val userName =
-        MainFragmentArgs.fromSavedStateHandle(savedStateHandle).summonerName ?: ""
+        HomeFragmentArgs.fromSavedStateHandle(savedStateHandle).summonerName ?: ""
 
     private val _userInfo = MutableLiveData<Summoner?>()
     val userInfo: LiveData<Summoner?> = _userInfo

@@ -8,7 +8,7 @@
 
         <variable
             name="vm"
-            type="io.github.seoj17.canyongg.ui.main.HomeViewModel" />
+            type="io.github.seoj17.canyongg.ui.home.HomeViewModel" />
 
         <import type="android.view.View" />
     </data>

@@ -18,6 +18,9 @@
         <action
             android:id="@+id/action_home_to_SearchSummoner"
             app:destination="@id/searchSummoner" />
+        <action
+            android:id="@+id/action_home_to_settingFragment"
+            app:destination="@id/setting" />
     </fragment>
     <fragment
         android:id="@+id/registerSummoner"
@@ -41,4 +44,8 @@
         android:id="@+id/searchResult"
         android:name="io.github.seoj17.canyongg.ui.search.SearchResultFragment"
         android:label="SearchResultFragment" />
+    <fragment
+        android:id="@+id/setting"
+        android:name="io.github.seoj17.canyongg.ui.setting.SettingFragment"
+        android:label="SettingFragment" />
 </navigation>

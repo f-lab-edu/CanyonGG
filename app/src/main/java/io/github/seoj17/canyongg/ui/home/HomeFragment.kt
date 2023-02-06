@@ -1,4 +1,4 @@
-package io.github.seoj17.canyongg.ui.main
+package io.github.seoj17.canyongg.ui.home
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,6 +11,7 @@ import androidx.navigation.Navigation
 import dagger.hilt.android.AndroidEntryPoint
 import io.github.seoj17.canyongg.databinding.FragmentHomeBinding
 import io.github.seoj17.canyongg.ui.dialog.NotFoundUserDialogFragment
+import io.github.seoj17.canyongg.ui.main.HomeFragmentDirections
 import io.github.seoj17.canyongg.utils.observeEvent
 
 @AndroidEntryPoint

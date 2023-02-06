@@ -16,7 +16,7 @@ import io.github.seoj17.canyongg.utils.observeEvent
 @AndroidEntryPoint
 class RegisterSummonerFragment : Fragment() {
     private lateinit var binding: FragmentRegisterSummonerBinding
-    private val viewModel: RegisterViewModel by viewModels()
+    private val viewModel: RegisterSummonerViewModel by viewModels()
     private lateinit var navigator: NavController
 
     override fun onCreateView(

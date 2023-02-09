@@ -8,9 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import dagger.hilt.android.AndroidEntryPoint
-import io.github.seoj17.canyongg.R
 import io.github.seoj17.canyongg.databinding.FragmentSearchResultBinding
 
 @AndroidEntryPoint
@@ -40,11 +38,10 @@ class SearchResultFragment : Fragment() {
 
             }
 
-//            binding.temp.setOnClickListener {
-//                navigator.navigate(
-//                    SearchResultFragmentDirections.actionSearchResultToDetailMatchFragment()
-//                )
-//            }
+        binding.temp.setOnClickListener {
+            navigator.navigate(
+                SearchResultFragmentDirections.actionSearchResultToDetailMatch()
+            )
         }
     }
 }

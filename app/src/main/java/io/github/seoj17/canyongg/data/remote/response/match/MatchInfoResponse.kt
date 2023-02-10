@@ -1,4 +1,4 @@
-package io.github.seoj17.canyongg.data.remote.response
+package io.github.seoj17.canyongg.data.remote.response.match
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass

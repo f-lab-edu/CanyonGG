@@ -1,4 +1,4 @@
-package io.github.seoj17.canyongg.data.remote.response
+package io.github.seoj17.canyongg.data.remote.response.match
 
 import com.squareup.moshi.JsonClass
 
@@ -61,6 +61,8 @@ data class ParticipantResponse(
     val puuid: String,
     val quadraKills: Int,
     val role: String,
+    val summoner1Id: Int,
+    val summoner2Id: Int,
     val sightWardsBoughtInGame: Int,
     val summonerId: String,
     val summonerLevel: Int,
@@ -78,7 +80,6 @@ data class ParticipantResponse(
     val turretTakedowns: Int,
     val turretsLost: Int,
     val unrealKills: Int,
-    val visionClearedPings: Int,
     val visionScore: Int,
     val visionWardsBoughtInGame: Int,
     val wardsKilled: Int,

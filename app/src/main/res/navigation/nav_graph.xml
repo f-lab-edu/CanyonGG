@@ -52,6 +52,9 @@
         <action
             android:id="@+id/action_searchResult_to_searchSummoner"
             app:destination="@id/searchSummoner" />
+        <argument
+            android:name="summoner"
+            app:argType="io.github.seoj17.canyongg.data.model.Summoner" />
     </fragment>
     <fragment
         android:id="@+id/setting"

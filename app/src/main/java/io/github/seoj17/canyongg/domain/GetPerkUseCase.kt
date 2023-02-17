@@ -9,7 +9,7 @@ import javax.inject.Inject
 class GetPerkUseCase @Inject constructor(
     private val repository: PerksRepository
 ) {
-    suspend operator fun invoke(id: Int): DomainPerks? {
-        return repository.getPerk(id)?.let { DomainPerks(it) }
+    suspend operator fun invoke(id: Int): DomainPerks {
+        return DomainPerks(repository.getPerk(id))
     }
 }

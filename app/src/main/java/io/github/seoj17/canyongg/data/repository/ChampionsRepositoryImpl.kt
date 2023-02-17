@@ -23,6 +23,10 @@ class ChampionsRepositoryImpl @Inject constructor(
             }
     }
 
+    override suspend fun getChampion(id: Int): String {
+        return championsDao.getChampion(id).name
+    }
+
     override suspend fun addChampionList(entities: List<ChampionsEntity>) {
         championsDao.insert(entities)
     }

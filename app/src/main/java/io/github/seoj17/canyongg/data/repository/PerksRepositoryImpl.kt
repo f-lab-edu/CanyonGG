@@ -10,7 +10,7 @@ class PerksRepositoryImpl @Inject constructor(
     private val dataCenterService: DataCenterService,
     private val perksDao: PerksDao,
 ) : PerksRepository {
-    override suspend fun getPerk(id: Int): PerksEntity? {
+    override suspend fun getPerk(id: Int): PerksEntity {
         return perksDao.getPerk(id)
     }
 

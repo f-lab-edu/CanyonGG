@@ -20,8 +20,8 @@ interface PerksDao {
     suspend fun deleteAll()
 
     @Query("SELECT * FROM perks_info WHERE perk_id = :id")
-    suspend fun getPerk(id: Int): PerksEntity?
+    suspend fun getPerk(id: Int): PerksEntity
 
     @Query("SELECT * FROM perks_info WHERE perk_name = :name")
-    suspend fun getPerk(name: String): PerksEntity?
+    suspend fun getPerk(name: String): PerksEntity
 }

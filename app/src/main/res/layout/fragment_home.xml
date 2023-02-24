@@ -135,7 +135,6 @@
                 android:id="@+id/champ_rotation_list_view"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginBottom="10dp"
                 android:orientation="horizontal"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 bind:rotationChampList="@{vm.rotationChamp}"

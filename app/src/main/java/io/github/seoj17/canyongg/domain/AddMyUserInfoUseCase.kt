@@ -1,7 +1,7 @@
 package io.github.seoj17.canyongg.domain
 
 import dagger.Reusable
-import io.github.seoj17.canyongg.data.local.MyUserInfoEntity
+import io.github.seoj17.canyongg.data.local.user.MyUserInfoEntity
 import io.github.seoj17.canyongg.data.repository.MyUserRepository
 import io.github.seoj17.canyongg.domain.model.DomainMyUserInfo
 import javax.inject.Inject

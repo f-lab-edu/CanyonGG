@@ -5,7 +5,7 @@ import io.github.seoj17.canyongg.data.repository.SummonerRepository
 import javax.inject.Inject
 
 @Reusable
-class GetRotationChamp @Inject constructor(
+class GetRotationChampUseCase @Inject constructor(
     private val repository: SummonerRepository,
 ) {
     suspend operator fun invoke(): List<Int> {

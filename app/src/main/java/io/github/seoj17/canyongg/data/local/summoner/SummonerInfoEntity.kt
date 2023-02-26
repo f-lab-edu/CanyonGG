@@ -1,4 +1,4 @@
-package io.github.seoj17.canyongg.data.local
+package io.github.seoj17.canyongg.data.local.summoner
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
@@ -29,4 +29,4 @@ data class SummonerInfoEntity(
     var kda: Double,
     @ColumnInfo(name = "summoner_largest_kill")
     var largestKill: Int,
-) 
+)

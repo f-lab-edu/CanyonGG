@@ -1,7 +1,7 @@
 package io.github.seoj17.canyongg.domain
 
 import dagger.Reusable
-import io.github.seoj17.canyongg.data.local.SummonerInfoEntity
+import io.github.seoj17.canyongg.data.local.summoner.SummonerInfoEntity
 import io.github.seoj17.canyongg.data.repository.SummonerInfoRepository
 import io.github.seoj17.canyongg.domain.model.DomainSummonerInfo
 import javax.inject.Inject

@@ -1,4 +1,4 @@
-package io.github.seoj17.canyongg.data.local
+package io.github.seoj17.canyongg.data.local.champions
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

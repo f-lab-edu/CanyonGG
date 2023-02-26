@@ -10,7 +10,7 @@ import androidx.lifecycle.viewModelScope
 import androidx.paging.cachedIn
 import dagger.hilt.android.lifecycle.HiltViewModel
 import io.github.seoj17.canyongg.data.model.Summoner
-import io.github.seoj17.canyongg.domain.AddBookmarkSummoner
+import io.github.seoj17.canyongg.domain.AddBookmarkSummonerUseCase
 import io.github.seoj17.canyongg.domain.AddSummonerInfoUseCase
 import io.github.seoj17.canyongg.domain.CheckBookmarkedSummonerUseCase
 import io.github.seoj17.canyongg.domain.DeleteBookmarkSummonerUseCase
@@ -34,7 +34,7 @@ class SummonerRecordViewModel @Inject constructor(
     private val getUserTierUseCase: GetUserTierUseCase,
     private val getSummonerUseCase: GetSummonerUseCase,
     private val getSummonerHistoryUseCase: GetSummonerHistoryUseCase,
-    private val addBookmarkSummoner: AddBookmarkSummoner,
+    private val addBookmarkSummoner: AddBookmarkSummonerUseCase,
     private val deleteBookmarkSummoner: DeleteBookmarkSummonerUseCase,
     private val checkBookmarkedSummoner: CheckBookmarkedSummonerUseCase,
     private val getSummonerInfoUseCase: GetSummonerInfoUseCase,

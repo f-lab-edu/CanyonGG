@@ -1,4 +1,4 @@
-package io.github.seoj17.canyongg.data.local
+package io.github.seoj17.canyongg.data.local.summoner
 
 import androidx.room.Dao
 import androidx.room.Insert

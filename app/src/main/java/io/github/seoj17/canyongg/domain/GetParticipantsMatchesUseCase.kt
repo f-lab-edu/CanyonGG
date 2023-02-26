@@ -8,7 +8,7 @@ import io.github.seoj17.canyongg.domain.model.DomainMatches
 import javax.inject.Inject
 
 @Reusable
-class GetParticipantsMatches @Inject constructor(
+class GetParticipantsMatchesUseCase @Inject constructor(
     private val matchRepository: MatchesRepository,
     private val dataCenterRepository: DataCenterRepository,
     private val perksRepository: PerksRepository,

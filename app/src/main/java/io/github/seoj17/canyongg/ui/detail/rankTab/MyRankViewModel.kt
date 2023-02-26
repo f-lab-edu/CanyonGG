@@ -6,7 +6,7 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
-import io.github.seoj17.canyongg.domain.GetParticipantsMatches
+import io.github.seoj17.canyongg.domain.GetParticipantsMatchesUseCase
 import io.github.seoj17.canyongg.ui.model.MyRank
 import io.github.seoj17.canyongg.ui.model.SummonerMatchRecord
 import kotlinx.coroutines.launch
@@ -15,7 +15,7 @@ import javax.inject.Inject
 @HiltViewModel
 class MyRankViewModel @Inject constructor(
     private val savedStateHandle: SavedStateHandle,
-    private val getParticipantsMatches: GetParticipantsMatches,
+    private val getParticipantsMatches: GetParticipantsMatchesUseCase,
 ) : ViewModel() {
 
     private val matchId = MyRankFragmentArgs.fromSavedStateHandle(savedStateHandle).matchId

@@ -1,7 +1,7 @@
 package io.github.seoj17.canyongg.domain
 
 import dagger.Reusable
-import io.github.seoj17.canyongg.data.local.PerksEntity
+import io.github.seoj17.canyongg.data.local.perks.PerksEntity
 import io.github.seoj17.canyongg.data.repository.PerksRepository
 import io.github.seoj17.canyongg.domain.model.DomainPerks
 import javax.inject.Inject

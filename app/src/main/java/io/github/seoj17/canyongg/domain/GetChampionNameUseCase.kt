@@ -5,7 +5,7 @@ import io.github.seoj17.canyongg.data.repository.ChampionsRepository
 import javax.inject.Inject
 
 @Reusable
-class GetChampionName @Inject constructor(
+class GetChampionNameUseCase @Inject constructor(
     private val repository: ChampionsRepository,
 ) {
     suspend operator fun invoke(ids: List<Int>): List<String> {

@@ -16,11 +16,11 @@ import io.github.seoj17.canyongg.domain.AddSummonerInfoUseCase
 import io.github.seoj17.canyongg.domain.DeleteBookmarkSummonerUseCase
 import io.github.seoj17.canyongg.domain.DeleteMyUserInfoUseCase
 import io.github.seoj17.canyongg.domain.GetBookmarkSummonerUseCase
-import io.github.seoj17.canyongg.domain.GetChampionName
+import io.github.seoj17.canyongg.domain.GetChampionNameUseCase
 import io.github.seoj17.canyongg.domain.GetMostChampUseCase
 import io.github.seoj17.canyongg.domain.GetMyMatchUseCase
 import io.github.seoj17.canyongg.domain.GetMyUserInfoUseCase
-import io.github.seoj17.canyongg.domain.GetRotationChamp
+import io.github.seoj17.canyongg.domain.GetRotationChampUseCase
 import io.github.seoj17.canyongg.domain.GetUserInfoUseCase
 import io.github.seoj17.canyongg.domain.GetUserTierUseCase
 import io.github.seoj17.canyongg.domain.model.DomainMostChamps
@@ -47,8 +47,8 @@ class HomeViewModel @Inject constructor(
     private val addMyMostChamps: AddMyMostChampsUseCase,
     private val deleteMyUserInfo: DeleteMyUserInfoUseCase,
     private val addSummonerInfoUseCase: AddSummonerInfoUseCase,
-    private val getRotationChamp: GetRotationChamp,
-    private val getChampionName: GetChampionName,
+    private val getRotationChamp: GetRotationChampUseCase,
+    private val getChampionName: GetChampionNameUseCase,
 ) : ViewModel() {
 
     private val summonerName =

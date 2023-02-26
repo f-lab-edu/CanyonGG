@@ -6,7 +6,7 @@ import javax.inject.Inject
 
 @Reusable
 class GetRotationChamp @Inject constructor(
-    private val repository: SummonerRepository
+    private val repository: SummonerRepository,
 ) {
     suspend operator fun invoke(): List<Int> {
         return repository.getRotationChamps()

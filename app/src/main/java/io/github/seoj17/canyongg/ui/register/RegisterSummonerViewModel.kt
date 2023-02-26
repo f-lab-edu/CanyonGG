@@ -13,7 +13,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class RegisterSummonerViewModel @Inject constructor(
-    private val getUserInfoUseCase: GetUserInfoUseCase
+    private val getUserInfoUseCase: GetUserInfoUseCase,
 ) : ViewModel() {
 
     private val _searchResult = MutableLiveData<Summoner?>()

@@ -6,7 +6,7 @@ import javax.inject.Inject
 
 @Reusable
 class CheckBookmarkedSummonerUseCase @Inject constructor(
-    private val repository: SummonerBookmarkRepository
+    private val repository: SummonerBookmarkRepository,
 ) {
     suspend operator fun invoke(puuid: String): Boolean {
         return repository.checkBookmarkedSummoner(puuid)

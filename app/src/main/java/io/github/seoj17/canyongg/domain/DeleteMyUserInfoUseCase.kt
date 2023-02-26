@@ -6,7 +6,7 @@ import javax.inject.Inject
 
 @Reusable
 class DeleteMyUserInfoUseCase @Inject constructor(
-    private val repository: MyUserRepository
+    private val repository: MyUserRepository,
 ) {
     suspend operator fun invoke() {
         return repository.deleteMyUserChamps()

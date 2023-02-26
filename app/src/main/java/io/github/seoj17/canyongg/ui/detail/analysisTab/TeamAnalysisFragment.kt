@@ -19,7 +19,7 @@ class TeamAnalysisFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View {
         super.onCreateView(inflater, container, savedInstanceState)
         binding = FragmentTeamAnalysisBinding.inflate(layoutInflater, container, false)

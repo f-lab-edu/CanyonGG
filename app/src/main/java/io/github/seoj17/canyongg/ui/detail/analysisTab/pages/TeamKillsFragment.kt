@@ -17,7 +17,7 @@ class TeamKillsFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View {
         super.onCreateView(inflater, container, savedInstanceState)
         binding = FragmentTeamKillsBinding.inflate(layoutInflater, container, false)

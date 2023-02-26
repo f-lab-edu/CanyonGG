@@ -16,7 +16,7 @@ import io.github.seoj17.canyongg.utils.setChampion
         BindingMethod(
             type = MostChampView::class,
             attribute = "champInfo",
-            method = "setChampInfo"
+            method = "setChampInfo",
         ),
     ]
 )

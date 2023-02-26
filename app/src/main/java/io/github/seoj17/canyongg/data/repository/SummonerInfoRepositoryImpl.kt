@@ -6,7 +6,7 @@ import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
 class SummonerInfoRepositoryImpl @Inject constructor(
-    private val localService: SummonerInfoDao
+    private val localService: SummonerInfoDao,
 ) : SummonerInfoRepository {
     override fun getSummonerInfo(puuid: String): Flow<SummonerInfoEntity?> {
         return localService.getSummonerInfo(puuid)

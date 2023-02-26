@@ -51,7 +51,7 @@ class DomainSummonerMatchInfo(
     val visionWardsBoughtInGame: Int,
     val wardsKilled: Int,
     val wardsPlaced: Int,
-    val win: Boolean
+    val win: Boolean,
 ) {
     companion object {
         operator fun invoke(

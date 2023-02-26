@@ -29,5 +29,4 @@ data class SummonerInfoEntity(
     var kda: Double,
     @ColumnInfo(name = "summoner_largest_kill")
     var largestKill: Int,
-) {
-}
+) 

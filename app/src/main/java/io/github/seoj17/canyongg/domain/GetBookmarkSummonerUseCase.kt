@@ -9,7 +9,7 @@ import javax.inject.Inject
 
 @Reusable
 class GetBookmarkSummonerUseCase @Inject constructor(
-    private val repository: SummonerBookmarkRepository
+    private val repository: SummonerBookmarkRepository,
 ) {
     operator fun invoke(): Flow<List<DomainBookmarkSummoner>> {
         return repository.getBookmarkedSummoner().map {

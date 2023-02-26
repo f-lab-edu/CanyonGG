@@ -8,7 +8,7 @@ import javax.inject.Inject
 
 @Reusable
 class AddPerksListUseCase @Inject constructor(
-    private val repository: PerksRepository
+    private val repository: PerksRepository,
 ) {
     suspend operator fun invoke(domain: List<DomainPerks>) {
         repository.addPerksList(

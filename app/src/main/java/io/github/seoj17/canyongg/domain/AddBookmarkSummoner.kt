@@ -8,7 +8,7 @@ import javax.inject.Inject
 
 @Reusable
 class AddBookmarkSummoner @Inject constructor(
-    private val repository: SummonerBookmarkRepository
+    private val repository: SummonerBookmarkRepository,
 ) {
     suspend operator fun invoke(domain: DomainBookmarkSummoner) {
         repository.addBookmarkSummoner(

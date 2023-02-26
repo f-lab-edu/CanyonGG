@@ -6,7 +6,7 @@ import javax.inject.Inject
 
 @Reusable
 class DeleteBookmarkSummonerUseCase @Inject constructor(
-    private val repository: SummonerBookmarkRepository
+    private val repository: SummonerBookmarkRepository,
 ) {
     suspend operator fun invoke(name: String) {
         repository.deleteBookmarkSummoner(name)

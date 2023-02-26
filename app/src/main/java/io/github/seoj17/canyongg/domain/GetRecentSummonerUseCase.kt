@@ -9,7 +9,7 @@ import javax.inject.Inject
 
 @Reusable
 class GetRecentSummonerUseCase @Inject constructor(
-    private val repository: SummonerRepository
+    private val repository: SummonerRepository,
 ) {
     operator fun invoke(): Flow<List<DomainRecentSummoner>> {
         return repository

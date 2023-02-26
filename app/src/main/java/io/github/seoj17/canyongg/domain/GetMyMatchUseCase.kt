@@ -7,7 +7,7 @@ import javax.inject.Inject
 
 @Reusable
 class GetMyMatchUseCase @Inject constructor(
-    private val repository: MatchesRepository
+    private val repository: MatchesRepository,
 ) {
     suspend operator fun invoke(puuid: String, start: Int = 0): List<MainMyInfo> {
         val myInfoList = mutableListOf<MainMyInfo>()

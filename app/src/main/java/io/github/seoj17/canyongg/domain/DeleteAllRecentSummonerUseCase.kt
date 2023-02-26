@@ -6,7 +6,7 @@ import javax.inject.Inject
 
 @Reusable
 class DeleteAllRecentSummonerUseCase @Inject constructor(
-    private val repository: SummonerRepository
+    private val repository: SummonerRepository,
 ) {
     suspend operator fun invoke() {
         return repository.deleteAllRecentSummoners()

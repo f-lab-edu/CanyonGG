@@ -30,7 +30,7 @@ class DataFetchWorker @AssistedInject constructor(
             },
             onFailure = {
                 return Result.retry()
-            }
+            },
         )
     }
 }

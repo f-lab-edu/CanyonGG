@@ -16,7 +16,7 @@ class TeamDealtFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View {
         super.onCreateView(inflater, container, savedInstanceState)
         binding = FragmentTeamDealtBinding.inflate(layoutInflater, container, false)
@@ -31,6 +31,7 @@ class TeamDealtFragment : Fragment() {
             teamDealtList.adapter = AnalysisPageListAdapter(1)
         }
     }
+
     companion object {
         fun newInstance(matchId: String): TeamDealtFragment {
             return TeamDealtFragment().apply {

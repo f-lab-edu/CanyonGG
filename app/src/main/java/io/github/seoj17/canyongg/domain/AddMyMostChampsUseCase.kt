@@ -8,7 +8,7 @@ import javax.inject.Inject
 
 @Reusable
 class AddMyMostChampsUseCase @Inject constructor(
-    private val repository: MyUserRepository
+    private val repository: MyUserRepository,
 ) {
     suspend operator fun invoke(domain: List<DomainMostChamps>) {
         repository.addMostChamps(

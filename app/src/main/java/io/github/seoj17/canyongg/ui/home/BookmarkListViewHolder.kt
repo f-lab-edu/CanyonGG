@@ -8,7 +8,7 @@ import io.github.seoj17.canyongg.ui.adapter.setSummonerProfile
 import io.github.seoj17.canyongg.ui.model.SummonerBookmark
 
 class BookmarkListViewHolder(
-    private val binding: ItemBookmarkSummonerBinding
+    private val binding: ItemBookmarkSummonerBinding,
 ) : RecyclerView.ViewHolder(binding.root) {
 
     fun bind(markedSummoner: SummonerBookmark, deleteClickListener: (String) -> Unit) {

@@ -9,7 +9,7 @@ import javax.inject.Inject
 
 @Reusable
 class GetMostChampUseCase @Inject constructor(
-    private val repository: MyUserRepository
+    private val repository: MyUserRepository,
 ) {
     operator fun invoke(): Flow<List<DomainMostChamps>> {
         return repository

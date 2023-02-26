@@ -12,7 +12,7 @@ import javax.inject.Inject
 
 class MatchesRepositoryImpl @Inject constructor(
     private val matchRemoteService: MatchesService,
-    private val matchInfoService: MatchInfoDao
+    private val matchInfoService: MatchInfoDao,
 ) : MatchesRepository {
 
     override fun getMatches(puuid: String): Pager<Int, DataMatches> {

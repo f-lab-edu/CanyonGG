@@ -8,7 +8,7 @@ import io.github.seoj17.canyongg.ui.model.SummonerMatchRecord
 import io.github.seoj17.canyongg.utils.setChampion
 
 class TeamGoldViewHolder(
-    private val binding: ItemTeamAnalysisBinding
+    private val binding: ItemTeamAnalysisBinding,
 ) : RecyclerView.ViewHolder(binding.root) {
     fun bind(data: SummonerMatchRecord, maxValue: Int) {
         with(binding) {

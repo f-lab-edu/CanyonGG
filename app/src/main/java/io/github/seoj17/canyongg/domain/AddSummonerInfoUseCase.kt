@@ -8,7 +8,7 @@ import javax.inject.Inject
 
 @Reusable
 class AddSummonerInfoUseCase @Inject constructor(
-    private val summonerInfoRepository: SummonerInfoRepository
+    private val summonerInfoRepository: SummonerInfoRepository,
 ) {
     suspend operator fun invoke(domain: DomainSummonerInfo) {
         summonerInfoRepository.addSummonerInfo(

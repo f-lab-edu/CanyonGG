@@ -8,7 +8,7 @@ import javax.inject.Inject
 
 @Reusable
 class AddChampionUseCase @Inject constructor(
-    private val repository: ChampionsRepository
+    private val repository: ChampionsRepository,
 ) {
     suspend operator fun invoke(champion: DomainChampions) {
         repository.addChampion(

@@ -7,7 +7,7 @@ import javax.inject.Inject
 
 @Reusable
 class GetUserTierUseCase @Inject constructor(
-    private val repository: SummonerRepository
+    private val repository: SummonerRepository,
 ) {
     suspend operator fun invoke(id: String): SummonerTier? {
         return repository.getTier(id)

@@ -7,7 +7,7 @@ import javax.inject.Inject
 
 @Reusable
 class GetUserInfoUseCase @Inject constructor(
-    private val repository: SummonerRepository
+    private val repository: SummonerRepository,
 ) {
     suspend operator fun invoke(userName: String): Summoner? {
         return repository.getSummonerInfo(userName)

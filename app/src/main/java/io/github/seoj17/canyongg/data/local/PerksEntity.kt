@@ -12,5 +12,5 @@ data class PerksEntity(
     @ColumnInfo(name = "perk_name")
     var name: String,
     @ColumnInfo(name = "perk_img_url")
-    var imgUrl: String
+    var imgUrl: String,
 )

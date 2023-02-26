@@ -7,7 +7,7 @@ import javax.inject.Inject
 
 @Reusable
 class GetChampionsUseCase @Inject constructor(
-    private val repository: ChampionsRepository
+    private val repository: ChampionsRepository,
 ) {
     suspend operator fun invoke(): List<DomainChampions> {
         return repository

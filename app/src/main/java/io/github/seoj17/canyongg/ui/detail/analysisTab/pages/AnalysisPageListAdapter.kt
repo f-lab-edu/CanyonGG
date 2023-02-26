@@ -16,7 +16,7 @@ class AnalysisPageListAdapter(
 ) : ListAdapter<SummonerMatchRecord, RecyclerView.ViewHolder>(SummonerMatchRecord.diffUtil) {
     override fun onCreateViewHolder(
         parent: ViewGroup,
-        viewType: Int
+        viewType: Int,
     ): RecyclerView.ViewHolder {
         return when (pageType) {
             0 -> TeamKillsViewHolder(parent)

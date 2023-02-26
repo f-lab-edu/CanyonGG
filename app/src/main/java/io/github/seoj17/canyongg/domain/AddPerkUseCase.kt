@@ -6,7 +6,7 @@ import io.github.seoj17.canyongg.domain.model.DomainPerks
 import javax.inject.Inject
 
 class AddPerkUseCase @Inject constructor(
-    private val repository: PerksRepository
+    private val repository: PerksRepository,
 ) {
     suspend operator fun invoke(domain: DomainPerks) {
         repository.addPerk(

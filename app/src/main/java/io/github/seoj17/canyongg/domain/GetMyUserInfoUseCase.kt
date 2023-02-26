@@ -9,7 +9,7 @@ import javax.inject.Inject
 
 @Reusable
 class GetMyUserInfoUseCase @Inject constructor(
-    private val repository: MyUserRepository
+    private val repository: MyUserRepository,
 ) {
     operator fun invoke(): Flow<DomainMyUserInfo?> {
         return repository

@@ -9,7 +9,7 @@ import javax.inject.Inject
 
 @Reusable
 class GetSummonerInfoUseCase @Inject constructor(
-    private val summonerInfoRepository: SummonerInfoRepository
+    private val summonerInfoRepository: SummonerInfoRepository,
 ) {
     operator fun invoke(puuid: String): Flow<DomainSummonerInfo?> {
         return summonerInfoRepository

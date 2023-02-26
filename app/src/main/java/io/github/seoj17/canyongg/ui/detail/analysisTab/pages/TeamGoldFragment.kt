@@ -17,7 +17,7 @@ class TeamGoldFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View {
         super.onCreateView(inflater, container, savedInstanceState)
         binding = FragmentTeamGoldBinding.inflate(layoutInflater, container, false)
@@ -32,6 +32,7 @@ class TeamGoldFragment : Fragment() {
             teamGoldList.adapter = AnalysisPageListAdapter(2)
         }
     }
+
     companion object {
         fun newInstance(matchId: String): TeamGoldFragment {
             return TeamGoldFragment().apply {

@@ -6,7 +6,7 @@ import io.github.seoj17.canyongg.data.model.DataPerks
 data class DomainPerks(
     var id: Int,
     var name: String,
-    var imgUrl: String
+    var imgUrl: String,
 ) {
     companion object {
         operator fun invoke(data: DataPerks): DomainPerks {

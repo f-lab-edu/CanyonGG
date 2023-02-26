@@ -6,7 +6,7 @@ import javax.inject.Inject
 
 @Reusable
 class GetSpellUseCase @Inject constructor(
-    private val dataCenterRepository: DataCenterRepository
+    private val dataCenterRepository: DataCenterRepository,
 ) {
     suspend operator fun invoke(key: Int): String {
         return dataCenterRepository.getSpell(key)

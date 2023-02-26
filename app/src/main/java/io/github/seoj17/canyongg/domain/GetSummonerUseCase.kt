@@ -7,7 +7,7 @@ import javax.inject.Inject
 
 @Reusable
 class GetSummonerUseCase @Inject constructor(
-    private val repository: MatchesRepository
+    private val repository: MatchesRepository,
 ) {
     suspend operator fun invoke(
         puuid: String,

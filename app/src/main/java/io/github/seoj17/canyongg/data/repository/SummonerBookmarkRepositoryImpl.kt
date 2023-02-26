@@ -6,7 +6,7 @@ import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
 class SummonerBookmarkRepositoryImpl @Inject constructor(
-    private val localService: SummonerBookmarkDao
+    private val localService: SummonerBookmarkDao,
 ) : SummonerBookmarkRepository {
     override fun getBookmarkedSummoner(): Flow<List<SummonerBookmarkEntity>> {
         return localService.getSummoners()

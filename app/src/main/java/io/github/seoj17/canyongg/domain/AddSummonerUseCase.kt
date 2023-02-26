@@ -6,7 +6,7 @@ import javax.inject.Inject
 
 @Reusable
 class AddSummonerUseCase @Inject constructor(
-    private val repository: SummonerRepository
+    private val repository: SummonerRepository,
 ) {
     suspend operator fun invoke(puuid: String, name: String) {
         return repository.addRecentSummoner(puuid, name)

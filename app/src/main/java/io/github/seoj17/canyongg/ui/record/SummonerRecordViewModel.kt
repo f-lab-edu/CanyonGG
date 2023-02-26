@@ -88,7 +88,7 @@ class SummonerRecordViewModel @Inject constructor(
     private fun calcSummonerInfo(
         myMatches: List<ParticipantsMatches>,
         summonerInfo: Summoner,
-        tier: String
+        tier: String,
     ) {
         val wholeMatch = myMatches.size
         val realMatch = wholeMatch - myMatches.count { it.gameEndedInEarlySurrender }

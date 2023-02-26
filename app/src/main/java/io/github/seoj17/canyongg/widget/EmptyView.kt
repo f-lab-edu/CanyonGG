@@ -27,6 +27,7 @@ import io.github.seoj17.canyongg.databinding.ViewEmptyBinding
         ),
     ]
 )
+
 class EmptyView @JvmOverloads constructor(
     context: Context,
     attributeSet: AttributeSet? = null,

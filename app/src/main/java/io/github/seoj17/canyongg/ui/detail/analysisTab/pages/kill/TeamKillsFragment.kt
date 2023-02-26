@@ -1,4 +1,4 @@
-package io.github.seoj17.canyongg.ui.detail.analysisTab.pages
+package io.github.seoj17.canyongg.ui.detail.analysisTab.pages.kill
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,19 +7,21 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import dagger.hilt.android.AndroidEntryPoint
-import io.github.seoj17.canyongg.databinding.FragmentTeamDealtBinding
+import io.github.seoj17.canyongg.databinding.FragmentTeamKillsBinding
+import io.github.seoj17.canyongg.ui.detail.analysisTab.pages.AnalysisPageListAdapter
 
 @AndroidEntryPoint
-class TeamDealtFragment : Fragment() {
-    private lateinit var binding: FragmentTeamDealtBinding
-    private val viewModel: TeamDealtViewModel by viewModels()
+class TeamKillsFragment : Fragment() {
+    private lateinit var binding: FragmentTeamKillsBinding
+    private val viewModel: TeamKillsViewModel by viewModels()
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View {
         super.onCreateView(inflater, container, savedInstanceState)
-        binding = FragmentTeamDealtBinding.inflate(layoutInflater, container, false)
+        binding = FragmentTeamKillsBinding.inflate(layoutInflater, container, false)
         return binding.root
     }
 
@@ -28,13 +30,13 @@ class TeamDealtFragment : Fragment() {
         with(binding) {
             lifecycleOwner = viewLifecycleOwner
             vm = viewModel
-            teamDealtList.adapter = AnalysisPageListAdapter(1)
+            teamKillsList.adapter = AnalysisPageListAdapter(0)
         }
     }
 
     companion object {
-        fun newInstance(matchId: String): TeamDealtFragment {
-            return TeamDealtFragment().apply {
+        fun newInstance(matchId: String): TeamKillsFragment {
+            return TeamKillsFragment().apply {
                 arguments = Bundle().apply {
                     putString("matchId", matchId)
                 }

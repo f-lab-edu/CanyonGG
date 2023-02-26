@@ -1,4 +1,4 @@
-package io.github.seoj17.canyongg.ui.detail.analysisTab.pages
+package io.github.seoj17.canyongg.ui.detail.analysisTab.pages.vision
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,19 +7,20 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import dagger.hilt.android.AndroidEntryPoint
-import io.github.seoj17.canyongg.databinding.FragmentTeamDamagedBinding
+import io.github.seoj17.canyongg.databinding.FragmentTeamVisionScoreBinding
 
 @AndroidEntryPoint
-class TeamDamagedFragment : Fragment() {
-    private lateinit var binding: FragmentTeamDamagedBinding
-    private val viewModel: TeamDamagedViewModel by viewModels()
+class TeamVisionScoreFragment : Fragment() {
+    private lateinit var binding: FragmentTeamVisionScoreBinding
+    private val viewModel: TeamVisionScoreViewModel by viewModels()
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View {
         super.onCreateView(inflater, container, savedInstanceState)
-        binding = FragmentTeamDamagedBinding.inflate(layoutInflater, container, false)
+        binding = FragmentTeamVisionScoreBinding.inflate(layoutInflater, container, false)
         return binding.root
     }
 
@@ -28,13 +29,13 @@ class TeamDamagedFragment : Fragment() {
         with(binding) {
             lifecycleOwner = viewLifecycleOwner
             vm = viewModel
-            teamDamagedList.adapter = AnalysisPageListAdapter(3)
+            teamVisionScoreList.adapter = AnalysisPageListAdapter(4)
         }
     }
 
     companion object {
-        fun newInstance(matchId: String): TeamDamagedFragment {
-            return TeamDamagedFragment().apply {
+        fun newInstance(matchId: String): TeamVisionScoreFragment {
+            return TeamVisionScoreFragment().apply {
                 arguments = Bundle().apply {
                     putString("matchId", matchId)
                 }

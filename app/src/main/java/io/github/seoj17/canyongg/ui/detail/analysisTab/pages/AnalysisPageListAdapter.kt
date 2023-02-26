@@ -3,12 +3,12 @@ package io.github.seoj17.canyongg.ui.detail.analysisTab.pages
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import io.github.seoj17.canyongg.ui.detail.analysisTab.pages.viewHolder.TeamDamagedViewHolder
-import io.github.seoj17.canyongg.ui.detail.analysisTab.pages.viewHolder.TeamDealtViewHolder
-import io.github.seoj17.canyongg.ui.detail.analysisTab.pages.viewHolder.TeamGoldViewHolder
-import io.github.seoj17.canyongg.ui.detail.analysisTab.pages.viewHolder.TeamKillsViewHolder
-import io.github.seoj17.canyongg.ui.detail.analysisTab.pages.viewHolder.TeamMinionsViewHolder
-import io.github.seoj17.canyongg.ui.detail.analysisTab.pages.viewHolder.TeamWardViewHolder
+import io.github.seoj17.canyongg.ui.detail.analysisTab.pages.damaged.TeamDamagedViewHolder
+import io.github.seoj17.canyongg.ui.detail.analysisTab.pages.dealt.TeamDealtViewHolder
+import io.github.seoj17.canyongg.ui.detail.analysisTab.pages.gold.TeamGoldViewHolder
+import io.github.seoj17.canyongg.ui.detail.analysisTab.pages.kill.TeamKillsViewHolder
+import io.github.seoj17.canyongg.ui.detail.analysisTab.pages.minion.TeamMinionsViewHolder
+import io.github.seoj17.canyongg.ui.detail.analysisTab.pages.vision.TeamVisionScoreViewHolder
 import io.github.seoj17.canyongg.ui.model.SummonerMatchRecord
 
 class AnalysisPageListAdapter(
@@ -23,7 +23,7 @@ class AnalysisPageListAdapter(
             1 -> TeamDealtViewHolder(parent)
             2 -> TeamGoldViewHolder(parent)
             3 -> TeamDamagedViewHolder(parent)
-            4 -> TeamWardViewHolder(parent)
+            4 -> TeamVisionScoreViewHolder(parent)
             5 -> TeamMinionsViewHolder(parent)
             else -> throw Exception("no page")
         }
@@ -56,7 +56,7 @@ class AnalysisPageListAdapter(
                     currentList.maxOf { it.totalDamaged },
                 )
             }
-            is TeamWardViewHolder -> {
+            is TeamVisionScoreViewHolder -> {
                 holder.bind(
                     dataSet,
                     currentList.maxOf { it.visionScore },

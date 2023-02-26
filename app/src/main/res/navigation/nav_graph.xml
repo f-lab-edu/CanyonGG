@@ -44,7 +44,7 @@
 
         <fragment
             android:id="@+id/team_vision_score"
-            android:name="io.github.seoj17.canyongg.ui.detail.analysisTab.pages.TeamVisionScoreFragment"
+            android:name="io.github.seoj17.canyongg.ui.detail.analysisTab.pages.vision.TeamVisionScoreFragment"
             android:label="TeamVisionScoreFragment" >
             <argument
                 android:name="matchId"
@@ -75,7 +75,7 @@
         </fragment>
         <fragment
             android:id="@+id/team_dealt"
-            android:name="io.github.seoj17.canyongg.ui.detail.analysisTab.pages.TeamDealtFragment"
+            android:name="io.github.seoj17.canyongg.ui.detail.analysisTab.pages.dealt.TeamDealtFragment"
             android:label="TeamDealtFragment" >
             <argument
                 android:name="matchId"
@@ -83,7 +83,7 @@
         </fragment>
         <fragment
             android:id="@+id/team_gold"
-            android:name="io.github.seoj17.canyongg.ui.detail.analysisTab.pages.TeamGoldFragment"
+            android:name="io.github.seoj17.canyongg.ui.detail.analysisTab.pages.gold.TeamGoldFragment"
             android:label="TeamGoldFragment" >
             <argument
                 android:name="matchId"
@@ -91,7 +91,7 @@
         </fragment>
         <fragment
             android:id="@+id/team_kill"
-            android:name="io.github.seoj17.canyongg.ui.detail.analysisTab.pages.TeamKillsFragment"
+            android:name="io.github.seoj17.canyongg.ui.detail.analysisTab.pages.kill.TeamKillsFragment"
             android:label="TeamKillsFragment" >
             <argument
                 android:name="matchId"
@@ -99,7 +99,7 @@
         </fragment>
         <fragment
             android:id="@+id/team_minion"
-            android:name="io.github.seoj17.canyongg.ui.detail.analysisTab.pages.TeamMinionFragment"
+            android:name="io.github.seoj17.canyongg.ui.detail.analysisTab.pages.minion.TeamMinionFragment"
             android:label="TeamMinionFragment" >
             <argument
                 android:name="matchId"
@@ -107,7 +107,7 @@
         </fragment>
         <fragment
             android:id="@+id/team_damage"
-            android:name="io.github.seoj17.canyongg.ui.detail.analysisTab.pages.TeamDamagedFragment"
+            android:name="io.github.seoj17.canyongg.ui.detail.analysisTab.pages.damaged.TeamDamagedFragment"
             android:label="TeamDamagedFragment" >
             <argument
                 android:name="matchId"

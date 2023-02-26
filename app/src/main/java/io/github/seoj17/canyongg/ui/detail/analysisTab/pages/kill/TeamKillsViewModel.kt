@@ -1,4 +1,4 @@
-package io.github.seoj17.canyongg.ui.detail.analysisTab.pages
+package io.github.seoj17.canyongg.ui.detail.analysisTab.pages.kill
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -7,16 +7,17 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import io.github.seoj17.canyongg.domain.usecase.match.GetParticipantsMatchesUseCase
+import io.github.seoj17.canyongg.ui.detail.analysisTab.pages.TeamKillsFragmentArgs
 import io.github.seoj17.canyongg.ui.model.SummonerMatchRecord
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class TeamDealtViewModel @Inject constructor(
+class TeamKillsViewModel @Inject constructor(
     private val savedStateHandle: SavedStateHandle,
     private val getParticipantsMatches: GetParticipantsMatchesUseCase,
 ) : ViewModel() {
-    private val matchId = TeamDealtFragmentArgs.fromSavedStateHandle(savedStateHandle).matchId
+    private val matchId = TeamKillsFragmentArgs.fromSavedStateHandle(savedStateHandle).matchId
 
     private val _matchInfo = MutableLiveData<List<SummonerMatchRecord>>()
     val matchInfo: LiveData<List<SummonerMatchRecord>> = _matchInfo
@@ -35,14 +36,14 @@ class TeamDealtViewModel @Inject constructor(
                 _matchInfo.value = matchInfo
                 _winTeamScore.value = matchInfo
                     .filter { it.win }
-                    .sumOf { it.totalDealt }
+                    .sumOf { it.kill }
                     .toString()
-                _loseTeamScore.value =
-                    matchInfo
-                        .filter { !it.win }
-                        .sumOf { it.totalDealt }
-                        .toString()
+                _loseTeamScore.value = matchInfo
+                    .filter { !it.win }
+                    .sumOf { it.kill }
+                    .toString()
             }
         }
+
     }
 }

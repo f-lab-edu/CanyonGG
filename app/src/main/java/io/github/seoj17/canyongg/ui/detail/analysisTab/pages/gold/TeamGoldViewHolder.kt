@@ -1,4 +1,4 @@
-package io.github.seoj17.canyongg.ui.detail.analysisTab.pages.viewHolder
+package io.github.seoj17.canyongg.ui.detail.analysisTab.pages.gold
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -7,22 +7,22 @@ import io.github.seoj17.canyongg.databinding.ItemTeamAnalysisBinding
 import io.github.seoj17.canyongg.ui.model.SummonerMatchRecord
 import io.github.seoj17.canyongg.utils.setChampion
 
-class TeamKillsViewHolder(
+class TeamGoldViewHolder(
     private val binding: ItemTeamAnalysisBinding,
 ) : RecyclerView.ViewHolder(binding.root) {
     fun bind(data: SummonerMatchRecord, maxValue: Int) {
         with(binding) {
             champion.setChampion(data.championName)
             summonerName.text = data.summonerName
-            itemValue.text = data.kill.toString()
-            valueGraph.progress = data.kill
+            itemValue.text = data.spentGold.toString()
+            valueGraph.progress = data.spentGold
             valueGraph.max = maxValue
         }
     }
 
     companion object {
-        operator fun invoke(parent: ViewGroup): TeamKillsViewHolder {
-            return TeamKillsViewHolder(
+        operator fun invoke(parent: ViewGroup): TeamGoldViewHolder {
+            return TeamGoldViewHolder(
                 ItemTeamAnalysisBinding.inflate(
                     LayoutInflater.from(parent.context), parent, false
                 )

@@ -1,4 +1,4 @@
-package io.github.seoj17.canyongg.ui.detail.analysisTab.pages
+package io.github.seoj17.canyongg.ui.detail.analysisTab.pages.damaged
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,20 +7,20 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import dagger.hilt.android.AndroidEntryPoint
-import io.github.seoj17.canyongg.databinding.FragmentTeamKillsBinding
+import io.github.seoj17.canyongg.databinding.FragmentTeamDamagedBinding
+import io.github.seoj17.canyongg.ui.detail.analysisTab.pages.AnalysisPageListAdapter
 
 @AndroidEntryPoint
-class TeamKillsFragment : Fragment() {
-    private lateinit var binding: FragmentTeamKillsBinding
-    private val viewModel: TeamKillsViewModel by viewModels()
-
+class TeamDamagedFragment : Fragment() {
+    private lateinit var binding: FragmentTeamDamagedBinding
+    private val viewModel: TeamDamagedViewModel by viewModels()
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View {
         super.onCreateView(inflater, container, savedInstanceState)
-        binding = FragmentTeamKillsBinding.inflate(layoutInflater, container, false)
+        binding = FragmentTeamDamagedBinding.inflate(layoutInflater, container, false)
         return binding.root
     }
 
@@ -29,13 +29,13 @@ class TeamKillsFragment : Fragment() {
         with(binding) {
             lifecycleOwner = viewLifecycleOwner
             vm = viewModel
-            teamKillsList.adapter = AnalysisPageListAdapter(0)
+            teamDamagedList.adapter = AnalysisPageListAdapter(3)
         }
     }
 
     companion object {
-        fun newInstance(matchId: String): TeamKillsFragment {
-            return TeamKillsFragment().apply {
+        fun newInstance(matchId: String): TeamDamagedFragment {
+            return TeamDamagedFragment().apply {
                 arguments = Bundle().apply {
                     putString("matchId", matchId)
                 }

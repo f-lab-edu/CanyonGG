@@ -2,12 +2,12 @@ package io.github.seoj17.canyongg.ui.detail.analysisTab
 
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import io.github.seoj17.canyongg.ui.detail.analysisTab.pages.TeamDamagedFragment
-import io.github.seoj17.canyongg.ui.detail.analysisTab.pages.TeamDealtFragment
-import io.github.seoj17.canyongg.ui.detail.analysisTab.pages.TeamGoldFragment
-import io.github.seoj17.canyongg.ui.detail.analysisTab.pages.TeamKillsFragment
-import io.github.seoj17.canyongg.ui.detail.analysisTab.pages.TeamMinionFragment
-import io.github.seoj17.canyongg.ui.detail.analysisTab.pages.TeamVisionScoreFragment
+import io.github.seoj17.canyongg.ui.detail.analysisTab.pages.damaged.TeamDamagedFragment
+import io.github.seoj17.canyongg.ui.detail.analysisTab.pages.dealt.TeamDealtFragment
+import io.github.seoj17.canyongg.ui.detail.analysisTab.pages.gold.TeamGoldFragment
+import io.github.seoj17.canyongg.ui.detail.analysisTab.pages.kill.TeamKillsFragment
+import io.github.seoj17.canyongg.ui.detail.analysisTab.pages.minion.TeamMinionFragment
+import io.github.seoj17.canyongg.ui.detail.analysisTab.pages.vision.TeamVisionScoreFragment
 
 
 class AnalysisViewPagerAdapter(

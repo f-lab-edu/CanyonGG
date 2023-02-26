@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import io.github.seoj17.canyongg.data.model.Summoner
-import io.github.seoj17.canyongg.domain.GetUserInfoUseCase
+import io.github.seoj17.canyongg.domain.usecase.user.GetUserInfoUseCase
 import io.github.seoj17.canyongg.utils.Event
 import kotlinx.coroutines.launch
 import javax.inject.Inject

@@ -6,7 +6,7 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
-import io.github.seoj17.canyongg.domain.GetParticipantsMatchesUseCase
+import io.github.seoj17.canyongg.domain.usecase.match.GetParticipantsMatchesUseCase
 import io.github.seoj17.canyongg.ui.model.SummonerMatchRecord
 import kotlinx.coroutines.launch
 import javax.inject.Inject

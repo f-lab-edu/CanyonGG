@@ -14,11 +14,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MatchSummaryViewModel @Inject constructor(
-    private val savedStateHandle: SavedStateHandle,
     private val getParticipantsMatches: GetParticipantsMatchesUseCase,
 ) : ViewModel() {
-
-    private val matchId = MatchSummaryFragmentArgs.fromSavedStateHandle(savedStateHandle).matchId
 
     private val _winTeamKdaInfo = MutableLiveData<TeamKdaInfo>()
     val winTeamKdaInfo: LiveData<TeamKdaInfo> = _winTeamKdaInfo
@@ -32,18 +29,24 @@ class MatchSummaryViewModel @Inject constructor(
     private val _loseTeam = MutableLiveData<List<SummonerMatchRecord>>()
     val loseTeam: LiveData<List<SummonerMatchRecord>> = _loseTeam
 
-    init {
-        if (matchId.isNotBlank()) {
+    private val _matchId = MutableLiveData<String>()
+    val matchId: LiveData<String> = _matchId
+
+    fun fetch() {
+        _matchId.value?.let { matchId ->
             viewModelScope.launch {
                 val data = getParticipantsMatches(matchId)
+
                 val winTeam = data.filter { it.win }.map {
                     SummonerMatchRecord(it)
                 }
+
                 val loseTeam = data.filter { !it.win }.map {
                     SummonerMatchRecord(it)
                 }
 
                 _winTeam.value = winTeam
+
                 _loseTeam.value = loseTeam
 
                 _winTeamKdaInfo.value = TeamKdaInfo(
@@ -63,5 +66,9 @@ class MatchSummaryViewModel @Inject constructor(
                 )
             }
         }
+    }
+
+    fun setMatchId(matchId: String) {
+        _matchId.value = matchId
     }
 }

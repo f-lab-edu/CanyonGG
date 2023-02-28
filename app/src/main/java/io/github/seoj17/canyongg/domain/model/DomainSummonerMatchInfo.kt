@@ -56,10 +56,10 @@ class DomainSummonerMatchInfo(
     companion object {
         operator fun invoke(
             response: ParticipantResponse,
-            firstSpell: String,
-            secondSpell: String,
-            mainPerk: String,
-            subPerk: String,
+            firstSpell: String = "",
+            secondSpell: String = "",
+            mainPerk: String = "",
+            subPerk: String = "",
         ): DomainSummonerMatchInfo {
             return DomainSummonerMatchInfo(
                 assists = response.assists,

@@ -129,7 +129,7 @@ data class ParticipantsMatches(
 
         operator fun invoke(
             domain: List<DomainSummonerMatchInfo>,
-            rank: String,
+            rank: String = "",
         ): List<ParticipantsMatches> {
             return domain.map {
                 invoke(it, rank)

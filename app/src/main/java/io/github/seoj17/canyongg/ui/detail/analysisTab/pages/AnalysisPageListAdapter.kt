@@ -2,7 +2,6 @@ package io.github.seoj17.canyongg.ui.detail.analysisTab.pages
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
-import androidx.recyclerview.widget.RecyclerView
 import io.github.seoj17.canyongg.ui.detail.analysisTab.pages.damaged.TeamDamagedViewHolder
 import io.github.seoj17.canyongg.ui.detail.analysisTab.pages.dealt.TeamDealtViewHolder
 import io.github.seoj17.canyongg.ui.detail.analysisTab.pages.gold.TeamGoldViewHolder
@@ -13,61 +12,26 @@ import io.github.seoj17.canyongg.ui.model.SummonerMatchRecord
 
 class AnalysisPageListAdapter(
     private val pageType: Int,
-) : ListAdapter<SummonerMatchRecord, RecyclerView.ViewHolder>(SummonerMatchRecord.diffUtil) {
+) : ListAdapter<SummonerMatchRecord, AnalysisPagerListViewHolder>(SummonerMatchRecord.diffUtil) {
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int,
-    ): RecyclerView.ViewHolder {
+    ): AnalysisPagerListViewHolder {
         return when (pageType) {
-            0 -> TeamKillsViewHolder(parent)
-            1 -> TeamDealtViewHolder(parent)
-            2 -> TeamGoldViewHolder(parent)
-            3 -> TeamDamagedViewHolder(parent)
-            4 -> TeamVisionScoreViewHolder(parent)
-            5 -> TeamMinionsViewHolder(parent)
+            AnalysisPagerTabs.KILLS.type -> TeamKillsViewHolder(parent)
+            AnalysisPagerTabs.DEALT.type -> TeamDealtViewHolder(parent)
+            AnalysisPagerTabs.DAMAGED.type -> TeamGoldViewHolder(parent)
+            AnalysisPagerTabs.SPENT_GOLD.type -> TeamDamagedViewHolder(parent)
+            AnalysisPagerTabs.MINIONS.type -> TeamMinionsViewHolder(parent)
+            AnalysisPagerTabs.VISION_SCORE.type -> TeamVisionScoreViewHolder(parent)
             else -> throw Exception("no page")
         }
     }
 
-    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: AnalysisPagerListViewHolder, position: Int) {
         val dataSet = getItem(position) ?: return
-        when (holder) {
-            is TeamKillsViewHolder -> {
-                holder.bind(
-                    dataSet,
-                    currentList.maxOf { it.kill },
-                )
-            }
-            is TeamDealtViewHolder -> {
-                holder.bind(
-                    dataSet,
-                    currentList.maxOf { it.totalDealt },
-                )
-            }
-            is TeamGoldViewHolder -> {
-                holder.bind(
-                    dataSet,
-                    currentList.maxOf { it.spentGold },
-                )
-            }
-            is TeamDamagedViewHolder -> {
-                holder.bind(
-                    dataSet,
-                    currentList.maxOf { it.totalDamaged },
-                )
-            }
-            is TeamVisionScoreViewHolder -> {
-                holder.bind(
-                    dataSet,
-                    currentList.maxOf { it.visionScore },
-                )
-            }
-            is TeamMinionsViewHolder -> {
-                holder.bind(
-                    dataSet,
-                    currentList.maxOf { it.minions },
-                )
-            }
+        with(holder) {
+            bind(dataSet, currentList)
         }
     }
 }

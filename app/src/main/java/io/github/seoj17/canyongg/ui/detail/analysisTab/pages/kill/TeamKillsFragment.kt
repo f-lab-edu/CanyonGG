@@ -8,12 +8,15 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import dagger.hilt.android.AndroidEntryPoint
 import io.github.seoj17.canyongg.databinding.FragmentTeamKillsBinding
+import io.github.seoj17.canyongg.ui.detail.analysisTab.TeamAnalysisViewModel
 import io.github.seoj17.canyongg.ui.detail.analysisTab.pages.AnalysisPageListAdapter
+import io.github.seoj17.canyongg.ui.detail.analysisTab.pages.AnalysisPagerTabs
 
 @AndroidEntryPoint
 class TeamKillsFragment : Fragment() {
     private lateinit var binding: FragmentTeamKillsBinding
     private val viewModel: TeamKillsViewModel by viewModels()
+    private val parentViewModel: TeamAnalysisViewModel by viewModels(ownerProducer = { requireParentFragment() })
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -30,17 +33,14 @@ class TeamKillsFragment : Fragment() {
         with(binding) {
             lifecycleOwner = viewLifecycleOwner
             vm = viewModel
-            teamKillsList.adapter = AnalysisPageListAdapter(0)
+            teamKillsList.adapter = AnalysisPageListAdapter(AnalysisPagerTabs.KILLS.type)
+
+            parentViewModel.matchId.value?.let { viewModel.setMatchId(it) }
+            viewModel.fetch()
         }
     }
 
     companion object {
-        fun newInstance(matchId: String): TeamKillsFragment {
-            return TeamKillsFragment().apply {
-                arguments = Bundle().apply {
-                    putString("matchId", matchId)
-                }
-            }
-        }
+        fun newInstance() = TeamKillsFragment()
     }
 }

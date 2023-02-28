@@ -8,12 +8,16 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import dagger.hilt.android.AndroidEntryPoint
 import io.github.seoj17.canyongg.databinding.FragmentTeamDamagedBinding
+import io.github.seoj17.canyongg.ui.detail.analysisTab.TeamAnalysisViewModel
 import io.github.seoj17.canyongg.ui.detail.analysisTab.pages.AnalysisPageListAdapter
+import io.github.seoj17.canyongg.ui.detail.analysisTab.pages.AnalysisPagerTabs
 
 @AndroidEntryPoint
 class TeamDamagedFragment : Fragment() {
     private lateinit var binding: FragmentTeamDamagedBinding
     private val viewModel: TeamDamagedViewModel by viewModels()
+    private val parentViewModel: TeamAnalysisViewModel by viewModels(ownerProducer = { requireParentFragment() })
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -29,17 +33,13 @@ class TeamDamagedFragment : Fragment() {
         with(binding) {
             lifecycleOwner = viewLifecycleOwner
             vm = viewModel
-            teamDamagedList.adapter = AnalysisPageListAdapter(3)
+            teamDamagedList.adapter = AnalysisPageListAdapter(AnalysisPagerTabs.DAMAGED.type)
         }
+        parentViewModel.matchId.value?.let { viewModel.setMatchId(it) }
+        viewModel.fetch()
     }
 
     companion object {
-        fun newInstance(matchId: String): TeamDamagedFragment {
-            return TeamDamagedFragment().apply {
-                arguments = Bundle().apply {
-                    putString("matchId", matchId)
-                }
-            }
-        }
+        fun newInstance() = TeamDamagedFragment()
     }
 }

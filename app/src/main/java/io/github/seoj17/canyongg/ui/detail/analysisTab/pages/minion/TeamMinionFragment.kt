@@ -8,12 +8,15 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import dagger.hilt.android.AndroidEntryPoint
 import io.github.seoj17.canyongg.databinding.FragmentTeamMinionBinding
+import io.github.seoj17.canyongg.ui.detail.analysisTab.TeamAnalysisViewModel
 import io.github.seoj17.canyongg.ui.detail.analysisTab.pages.AnalysisPageListAdapter
+import io.github.seoj17.canyongg.ui.detail.analysisTab.pages.AnalysisPagerTabs
 
 @AndroidEntryPoint
 class TeamMinionFragment : Fragment() {
     private lateinit var binding: FragmentTeamMinionBinding
     private val viewModel: TeamMinionViewModel by viewModels()
+    private val parentViewModel: TeamAnalysisViewModel by viewModels(ownerProducer = { requireParentFragment() })
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -30,17 +33,14 @@ class TeamMinionFragment : Fragment() {
         with(binding) {
             lifecycleOwner = viewLifecycleOwner
             vm = viewModel
-            teamMinionsList.adapter = AnalysisPageListAdapter(5)
+            teamMinionsList.adapter = AnalysisPageListAdapter(AnalysisPagerTabs.MINIONS.type)
+
+            parentViewModel.matchId.value?.let { viewModel.setMatchId(it) }
+            viewModel.fetch()
         }
     }
 
     companion object {
-        fun newInstance(matchId: String): TeamMinionFragment {
-            return TeamMinionFragment().apply {
-                arguments = Bundle().apply {
-                    putString("matchId", matchId)
-                }
-            }
-        }
+        fun newInstance() = TeamMinionFragment()
     }
 }

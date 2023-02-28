@@ -8,12 +8,15 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import dagger.hilt.android.AndroidEntryPoint
 import io.github.seoj17.canyongg.databinding.FragmentTeamGoldBinding
+import io.github.seoj17.canyongg.ui.detail.analysisTab.TeamAnalysisViewModel
 import io.github.seoj17.canyongg.ui.detail.analysisTab.pages.AnalysisPageListAdapter
+import io.github.seoj17.canyongg.ui.detail.analysisTab.pages.AnalysisPagerTabs
 
 @AndroidEntryPoint
 class TeamGoldFragment : Fragment() {
     private lateinit var binding: FragmentTeamGoldBinding
     private val viewModel: TeamGoldViewModel by viewModels()
+    private val parentViewModel: TeamAnalysisViewModel by viewModels(ownerProducer = { requireParentFragment() })
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -30,17 +33,14 @@ class TeamGoldFragment : Fragment() {
         with(binding) {
             lifecycleOwner = viewLifecycleOwner
             vm = viewModel
-            teamGoldList.adapter = AnalysisPageListAdapter(2)
+            teamGoldList.adapter = AnalysisPageListAdapter(AnalysisPagerTabs.SPENT_GOLD.type)
+
+            parentViewModel.matchId.value?.let { viewModel.setMatchId(it) }
+            viewModel.fetch()
         }
     }
 
     companion object {
-        fun newInstance(matchId: String): TeamGoldFragment {
-            return TeamGoldFragment().apply {
-                arguments = Bundle().apply {
-                    putString("matchId", matchId)
-                }
-            }
-        }
+        fun newInstance() = TeamGoldFragment()
     }
 }

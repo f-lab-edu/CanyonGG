@@ -8,11 +8,15 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import dagger.hilt.android.AndroidEntryPoint
 import io.github.seoj17.canyongg.databinding.FragmentTeamVisionScoreBinding
+import io.github.seoj17.canyongg.ui.detail.analysisTab.TeamAnalysisViewModel
+import io.github.seoj17.canyongg.ui.detail.analysisTab.pages.AnalysisPageListAdapter
+import io.github.seoj17.canyongg.ui.detail.analysisTab.pages.AnalysisPagerTabs
 
 @AndroidEntryPoint
 class TeamVisionScoreFragment : Fragment() {
     private lateinit var binding: FragmentTeamVisionScoreBinding
     private val viewModel: TeamVisionScoreViewModel by viewModels()
+    private val parentViewModel: TeamAnalysisViewModel by viewModels(ownerProducer = { requireParentFragment() })
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -29,17 +33,14 @@ class TeamVisionScoreFragment : Fragment() {
         with(binding) {
             lifecycleOwner = viewLifecycleOwner
             vm = viewModel
-            teamVisionScoreList.adapter = AnalysisPageListAdapter(4)
+            teamVisionScoreList.adapter = AnalysisPageListAdapter(AnalysisPagerTabs.VISION_SCORE.type)
+
+            parentViewModel.matchId.value?.let { viewModel.setMatchId(it) }
+            viewModel.fetch()
         }
     }
 
     companion object {
-        fun newInstance(matchId: String): TeamVisionScoreFragment {
-            return TeamVisionScoreFragment().apply {
-                arguments = Bundle().apply {
-                    putString("matchId", matchId)
-                }
-            }
-        }
+        fun newInstance() = TeamVisionScoreFragment()
     }
 }

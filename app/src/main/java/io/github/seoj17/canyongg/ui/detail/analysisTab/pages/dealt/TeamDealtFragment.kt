@@ -8,12 +8,16 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import dagger.hilt.android.AndroidEntryPoint
 import io.github.seoj17.canyongg.databinding.FragmentTeamDealtBinding
+import io.github.seoj17.canyongg.ui.detail.analysisTab.TeamAnalysisViewModel
 import io.github.seoj17.canyongg.ui.detail.analysisTab.pages.AnalysisPageListAdapter
+import io.github.seoj17.canyongg.ui.detail.analysisTab.pages.AnalysisPagerTabs
 
 @AndroidEntryPoint
 class TeamDealtFragment : Fragment() {
     private lateinit var binding: FragmentTeamDealtBinding
     private val viewModel: TeamDealtViewModel by viewModels()
+    private val parentViewModel: TeamAnalysisViewModel by viewModels(ownerProducer = { requireParentFragment() })
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -29,17 +33,14 @@ class TeamDealtFragment : Fragment() {
         with(binding) {
             lifecycleOwner = viewLifecycleOwner
             vm = viewModel
-            teamDealtList.adapter = AnalysisPageListAdapter(1)
+            teamDealtList.adapter = AnalysisPageListAdapter(AnalysisPagerTabs.DEALT.type)
+
+            parentViewModel.matchId.value?.let { viewModel.setMatchId(it) }
+            viewModel.fetch()
         }
     }
 
     companion object {
-        fun newInstance(matchId: String): TeamDealtFragment {
-            return TeamDealtFragment().apply {
-                arguments = Bundle().apply {
-                    putString("matchId", matchId)
-                }
-            }
-        }
+        fun newInstance() = TeamDealtFragment()
     }
 }

@@ -2,21 +2,20 @@ package io.github.seoj17.canyongg.ui.detail.analysisTab.pages.minion
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.recyclerview.widget.RecyclerView
 import io.github.seoj17.canyongg.databinding.ItemTeamAnalysisBinding
+import io.github.seoj17.canyongg.ui.detail.analysisTab.pages.AnalysisPagerListViewHolder
 import io.github.seoj17.canyongg.ui.model.SummonerMatchRecord
-import io.github.seoj17.canyongg.utils.setChampion
 
 class TeamMinionsViewHolder(
     private val binding: ItemTeamAnalysisBinding,
-) : RecyclerView.ViewHolder(binding.root) {
-    fun bind(data: SummonerMatchRecord, maxValue: Int) {
+) : AnalysisPagerListViewHolder(binding.root) {
+    override fun bind(dataSet: SummonerMatchRecord, wholeData: List<SummonerMatchRecord>) {
+
         with(binding) {
-            champion.setChampion(data.championName)
-            summonerName.text = data.summonerName
-            itemValue.text = data.minions.toString()
-            valueGraph.progress = data.minions
-            valueGraph.max = maxValue
+            data = dataSet
+            itemValue.text = dataSet.minions.toString()
+            valueGraph.progress = dataSet.minions
+            valueGraph.max = wholeData.maxOf { it.minions }
         }
     }
 

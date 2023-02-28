@@ -2,21 +2,20 @@ package io.github.seoj17.canyongg.ui.detail.analysisTab.pages.kill
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.recyclerview.widget.RecyclerView
 import io.github.seoj17.canyongg.databinding.ItemTeamAnalysisBinding
+import io.github.seoj17.canyongg.ui.detail.analysisTab.pages.AnalysisPagerListViewHolder
 import io.github.seoj17.canyongg.ui.model.SummonerMatchRecord
-import io.github.seoj17.canyongg.utils.setChampion
 
 class TeamKillsViewHolder(
     private val binding: ItemTeamAnalysisBinding,
-) : RecyclerView.ViewHolder(binding.root) {
-    fun bind(data: SummonerMatchRecord, maxValue: Int) {
+) : AnalysisPagerListViewHolder(binding.root) {
+
+    override fun bind(dataSet: SummonerMatchRecord, wholeData: List<SummonerMatchRecord>) {
         with(binding) {
-            champion.setChampion(data.championName)
-            summonerName.text = data.summonerName
-            itemValue.text = data.kill.toString()
-            valueGraph.progress = data.kill
-            valueGraph.max = maxValue
+            data = dataSet
+            itemValue.text = dataSet.kill.toString()
+            valueGraph.progress = dataSet.kill
+            valueGraph.max = wholeData.maxOf { it.kill }
         }
     }
 

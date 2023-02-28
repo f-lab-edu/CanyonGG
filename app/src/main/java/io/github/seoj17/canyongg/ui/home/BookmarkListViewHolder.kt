@@ -13,9 +13,7 @@ class BookmarkListViewHolder(
 
     fun bind(markedSummoner: SummonerBookmark, deleteClickListener: (String) -> Unit) {
         with(binding) {
-            summonerProfile.setSummonerProfile(markedSummoner.summonerIcon)
-            summonerLevel.text = markedSummoner.summonerLevel.toString()
-            summonerName.text = markedSummoner.summonerName
+            data = markedSummoner
             deleteBookmark.setOnClickListener {
                 deleteClickListener(markedSummoner.summonerName)
             }

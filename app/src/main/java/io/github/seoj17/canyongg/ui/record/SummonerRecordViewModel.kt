@@ -54,14 +54,14 @@ class SummonerRecordViewModel @Inject constructor(
                 domain?.let { it -> SummonerInfo(it) }
             }
 
-    private val _summonerMostKill = MutableLiveData<String>("단일 킬")
+    private val _summonerMostKill = MutableLiveData<String>()
     val summonerMostKill: LiveData<String> = _summonerMostKill
 
     val summonerRecordHistory =
         getSummonerHistoryUseCase(summonerPuuid).asLiveData().cachedIn(viewModelScope)
 
-    private val _bookmarkedSummoner = MutableLiveData<Boolean>()
-    val bookmarkedSummoner: LiveData<Boolean> = _bookmarkedSummoner
+    private val _bookmarkedSummoner = MutableLiveData<Boolean?>()
+    val bookmarkedSummoner: LiveData<Boolean?> = _bookmarkedSummoner
 
     private val _addBookmarkEvent = MutableLiveData<Event<Boolean>>()
     val addBookmarkEvent: LiveData<Event<Boolean>> = _addBookmarkEvent
@@ -77,7 +77,7 @@ class SummonerRecordViewModel @Inject constructor(
                     "${summonerTier.tier} ${summonerTier.rank}"
                 } ?: "UNRANKED"
 
-                val matches = ParticipantsMatches(getSummonerUseCase(summonerInfo.puuid), "")
+                val matches = ParticipantsMatches(getSummonerUseCase(summonerInfo.puuid))
                 if (matches.isNotEmpty()) {
                     calcSummonerInfo(matches, summonerInfo, tier)
                 }
@@ -126,7 +126,7 @@ class SummonerRecordViewModel @Inject constructor(
             3 -> "트리플 킬"
             4 -> "쿼드라 킬"
             5 -> "펜타 킬"
-            else -> ""
+            else -> "단일 킬"
         }
     }
 

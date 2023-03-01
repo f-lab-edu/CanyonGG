@@ -6,7 +6,7 @@ import dagger.Reusable
 import io.github.seoj17.canyongg.data.repository.DataCenterRepository
 import io.github.seoj17.canyongg.data.repository.MatchesRepository
 import io.github.seoj17.canyongg.data.repository.PerksRepository
-import io.github.seoj17.canyongg.domain.model.DomainMatches
+import io.github.seoj17.canyongg.domain.model.MatchesDomainModel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
@@ -17,13 +17,13 @@ class GetSummonerHistoryUseCase @Inject constructor(
     private val dataCenterRepository: DataCenterRepository,
     private val perksRepository: PerksRepository,
 ) {
-    operator fun invoke(puuid: String): Flow<PagingData<DomainMatches>> {
+    operator fun invoke(puuid: String): Flow<PagingData<MatchesDomainModel>> {
         return matchRepository
             .getMatches(puuid)
             .flow
             .map { paging ->
                 paging.map { data ->
-                    DomainMatches(
+                    MatchesDomainModel(
                         data,
                         dataCenterRepository.getSpell(data.firstSpell),
                         dataCenterRepository.getSpell(data.secondSpell),

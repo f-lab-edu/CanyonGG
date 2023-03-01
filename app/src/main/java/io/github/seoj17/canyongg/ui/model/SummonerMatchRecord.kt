@@ -4,7 +4,7 @@ import android.annotation.SuppressLint
 import androidx.paging.PagingData
 import androidx.paging.map
 import androidx.recyclerview.widget.DiffUtil
-import io.github.seoj17.canyongg.domain.model.DomainMatches
+import io.github.seoj17.canyongg.domain.model.MatchesDomainModel
 
 data class SummonerMatchRecord(
     val puuid: String,
@@ -56,7 +56,7 @@ data class SummonerMatchRecord(
             }
         }
 
-        operator fun invoke(domain: DomainMatches): SummonerMatchRecord {
+        operator fun invoke(domain: MatchesDomainModel): SummonerMatchRecord {
             return SummonerMatchRecord(
                 puuid = domain.puuid,
                 matchId = domain.matchId,
@@ -91,13 +91,13 @@ data class SummonerMatchRecord(
             )
         }
 
-        operator fun invoke(paging: PagingData<DomainMatches>): PagingData<SummonerMatchRecord> {
+        operator fun invoke(paging: PagingData<MatchesDomainModel>): PagingData<SummonerMatchRecord> {
             return paging.map { data ->
                 invoke(data)
             }
         }
 
-        operator fun invoke(list: List<DomainMatches>): List<SummonerMatchRecord> {
+        operator fun invoke(list: List<MatchesDomainModel>): List<SummonerMatchRecord> {
             return list.map {
                 invoke(it)
             }

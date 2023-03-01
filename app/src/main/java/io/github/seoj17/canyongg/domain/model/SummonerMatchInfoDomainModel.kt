@@ -4,7 +4,7 @@ import io.github.seoj17.canyongg.data.remote.response.match.Challenges
 import io.github.seoj17.canyongg.data.remote.response.match.ParticipantResponse
 import io.github.seoj17.canyongg.data.remote.response.match.Perks
 
-class DomainSummonerMatchInfo(
+class SummonerMatchInfoDomainModel(
     val assists: Int,
     val baronKills: Int,
     val challenges: Challenges,
@@ -60,8 +60,8 @@ class DomainSummonerMatchInfo(
             secondSpell: String = "",
             mainPerk: String = "",
             subPerk: String = "",
-        ): DomainSummonerMatchInfo {
-            return DomainSummonerMatchInfo(
+        ): SummonerMatchInfoDomainModel {
+            return SummonerMatchInfoDomainModel(
                 assists = response.assists,
                 baronKills = response.baronKills,
                 challenges = response.challenges,

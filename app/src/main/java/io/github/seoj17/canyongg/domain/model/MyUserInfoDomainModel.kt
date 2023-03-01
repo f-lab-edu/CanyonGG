@@ -1,8 +1,8 @@
 package io.github.seoj17.canyongg.domain.model
 
-import io.github.seoj17.canyongg.data.local.summoner.SummonerInfoEntity
+import io.github.seoj17.canyongg.data.local.user.MyUserInfoEntity
 
-data class DomainSummonerInfo(
+data class MyUserInfoDomainModel(
     val puuid: String,
     val profile: Int,
     val level: Int,
@@ -13,11 +13,10 @@ data class DomainSummonerInfo(
     val lose: Int,
     val winRate: Int,
     val kda: Double,
-    val largestKill: Int,
 ) {
     companion object {
-        operator fun invoke(entity: SummonerInfoEntity): DomainSummonerInfo {
-            return DomainSummonerInfo(
+        operator fun invoke(entity: MyUserInfoEntity): MyUserInfoDomainModel {
+            return MyUserInfoDomainModel(
                 puuid = entity.puuid,
                 profile = entity.profile,
                 level = entity.level,
@@ -28,7 +27,6 @@ data class DomainSummonerInfo(
                 lose = entity.lose,
                 winRate = entity.winRate,
                 kda = entity.kda,
-                largestKill = entity.largestKill
             )
         }
     }

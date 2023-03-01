@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "recent_search")
 data class RecentSearchNameEntity(
     @PrimaryKey
-    @ColumnInfo(name = "summoner_puuid")
+    @ColumnInfo(name = "puuid")
     var summonerPuuid: String,
     @ColumnInfo(name = "summoner_name")
     var summonerName: String,

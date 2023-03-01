@@ -1,6 +1,6 @@
 package io.github.seoj17.canyongg.ui.model
 
-import io.github.seoj17.canyongg.domain.model.DomainMyUserInfo
+import io.github.seoj17.canyongg.domain.model.MyUserInfoDomainModel
 
 data class MyUserInfo(
     val puuid: String,
@@ -15,7 +15,7 @@ data class MyUserInfo(
     val kda: Double,
 ) {
     companion object {
-        operator fun invoke(domain: DomainMyUserInfo): MyUserInfo {
+        operator fun invoke(domain: MyUserInfoDomainModel): MyUserInfo {
             return MyUserInfo(
                 puuid = domain.puuid,
                 profile = domain.profile,

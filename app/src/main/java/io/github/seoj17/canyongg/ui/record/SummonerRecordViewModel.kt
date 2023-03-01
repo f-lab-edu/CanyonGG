@@ -19,8 +19,8 @@ import io.github.seoj17.canyongg.domain.usecase.summoner.GetSummonerInfoUseCase
 import io.github.seoj17.canyongg.domain.usecase.summoner.GetSummonerUseCase
 import io.github.seoj17.canyongg.domain.usecase.user.GetUserInfoUseCase
 import io.github.seoj17.canyongg.domain.usecase.user.GetUserTierUseCase
-import io.github.seoj17.canyongg.domain.model.DomainBookmarkSummoner
-import io.github.seoj17.canyongg.domain.model.DomainSummonerInfo
+import io.github.seoj17.canyongg.domain.model.BookmarkSummonerDomainModel
+import io.github.seoj17.canyongg.domain.model.SummonerInfoDomainModel
 import io.github.seoj17.canyongg.ui.model.ParticipantsMatches
 import io.github.seoj17.canyongg.ui.model.SummonerInfo
 import io.github.seoj17.canyongg.utils.Event
@@ -103,7 +103,7 @@ class SummonerRecordViewModel @Inject constructor(
         _summonerMostKill.value = mostKillToName(mostKill)
         viewModelScope.launch {
             addSummonerInfoUseCase(
-                DomainSummonerInfo(
+                SummonerInfoDomainModel(
                     puuid = summonerPuuid,
                     profile = summonerInfo.profileIconId,
                     level = summonerInfo.summonerLevel,
@@ -134,7 +134,7 @@ class SummonerRecordViewModel @Inject constructor(
         val summonerInfo = summonerInfo.value!!
         viewModelScope.launch {
             addBookmarkSummoner(
-                DomainBookmarkSummoner(
+                BookmarkSummonerDomainModel(
                     summonerPuuid = summonerInfo.puuid,
                     summonerName = summonerInfo.name,
                     summonerLevel = summonerInfo.level,

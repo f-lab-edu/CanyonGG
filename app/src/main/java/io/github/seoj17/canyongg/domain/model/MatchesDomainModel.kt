@@ -3,7 +3,7 @@ package io.github.seoj17.canyongg.domain.model
 import io.github.seoj17.canyongg.data.local.match.MatchInfoEntity
 import io.github.seoj17.canyongg.data.model.DataMatches
 
-data class DomainMatches(
+data class MatchesDomainModel(
     val puuid: String,
     val matchId: String,
     val summonerName: String,
@@ -42,8 +42,8 @@ data class DomainMatches(
             secondSpell: String,
             mainRune: String,
             subRune: String,
-        ): DomainMatches {
-            return DomainMatches(
+        ): MatchesDomainModel {
+            return MatchesDomainModel(
                 puuid = data.puuid,
                 matchId = data.matchId,
                 summonerName = data.summonerName,
@@ -83,8 +83,8 @@ data class DomainMatches(
             secondSpell: String,
             mainRune: String,
             subRune: String,
-        ): DomainMatches {
-            return DomainMatches(
+        ): MatchesDomainModel {
+            return MatchesDomainModel(
                 puuid = entity.puuid,
                 matchId = entity.matchId,
                 summonerName = entity.summonerName,

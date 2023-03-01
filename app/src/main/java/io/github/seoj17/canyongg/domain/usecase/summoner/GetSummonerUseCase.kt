@@ -2,7 +2,7 @@ package io.github.seoj17.canyongg.domain.usecase.summoner
 
 import dagger.Reusable
 import io.github.seoj17.canyongg.data.repository.MatchesRepository
-import io.github.seoj17.canyongg.domain.model.DomainSummonerMatchInfo
+import io.github.seoj17.canyongg.domain.model.SummonerMatchInfoDomainModel
 import javax.inject.Inject
 
 @Reusable
@@ -12,8 +12,8 @@ class GetSummonerUseCase @Inject constructor(
     suspend operator fun invoke(
         puuid: String,
         start: Int = 0,
-    ): List<DomainSummonerMatchInfo> {
-        val myInfoList = mutableListOf<DomainSummonerMatchInfo>()
+    ): List<SummonerMatchInfoDomainModel> {
+        val myInfoList = mutableListOf<SummonerMatchInfoDomainModel>()
         repository
             .getMatchInfo(puuid, start)
             .forEach { matchInfo ->
@@ -22,7 +22,7 @@ class GetSummonerUseCase @Inject constructor(
                         it.puuid == puuid
                     }
                     ?.let {
-                        myInfoList.add(DomainSummonerMatchInfo(it))
+                        myInfoList.add(SummonerMatchInfoDomainModel(it))
                     }
             }
         return myInfoList

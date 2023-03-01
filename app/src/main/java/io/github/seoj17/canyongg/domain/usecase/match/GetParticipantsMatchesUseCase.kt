@@ -4,7 +4,7 @@ import dagger.Reusable
 import io.github.seoj17.canyongg.data.repository.DataCenterRepository
 import io.github.seoj17.canyongg.data.repository.MatchesRepository
 import io.github.seoj17.canyongg.data.repository.PerksRepository
-import io.github.seoj17.canyongg.domain.model.DomainMatches
+import io.github.seoj17.canyongg.domain.model.MatchesDomainModel
 import javax.inject.Inject
 
 @Reusable
@@ -13,11 +13,11 @@ class GetParticipantsMatchesUseCase @Inject constructor(
     private val dataCenterRepository: DataCenterRepository,
     private val perksRepository: PerksRepository,
 ) {
-    suspend operator fun invoke(matchId: String): List<DomainMatches> {
+    suspend operator fun invoke(matchId: String): List<MatchesDomainModel> {
         return matchRepository
             .getParticipantsMatchInfo(matchId)
             .map { entity ->
-                DomainMatches(
+                MatchesDomainModel(
                     entity,
                     dataCenterRepository.getSpell(entity.firstSpell),
                     dataCenterRepository.getSpell(entity.secondSpell),

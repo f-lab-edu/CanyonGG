@@ -23,9 +23,9 @@ import io.github.seoj17.canyongg.domain.usecase.user.GetMyUserInfoUseCase
 import io.github.seoj17.canyongg.domain.usecase.champion.GetRotationChampUseCase
 import io.github.seoj17.canyongg.domain.usecase.user.GetUserInfoUseCase
 import io.github.seoj17.canyongg.domain.usecase.user.GetUserTierUseCase
-import io.github.seoj17.canyongg.domain.model.DomainMostChamps
-import io.github.seoj17.canyongg.domain.model.DomainMyUserInfo
-import io.github.seoj17.canyongg.domain.model.DomainSummonerInfo
+import io.github.seoj17.canyongg.domain.model.MostChampsDomainModel
+import io.github.seoj17.canyongg.domain.model.MyUserInfoDomainModel
+import io.github.seoj17.canyongg.domain.model.SummonerInfoDomainModel
 import io.github.seoj17.canyongg.ui.model.ChampInfo
 import io.github.seoj17.canyongg.ui.model.MyUserInfo
 import io.github.seoj17.canyongg.ui.model.UserRecord
@@ -156,7 +156,7 @@ class HomeViewModel @Inject constructor(
         tier: String,
     ) {
         addMyUserInfo(
-            DomainMyUserInfo(
+            MyUserInfoDomainModel(
                 puuid = summoner.puuid,
                 profile = summoner.profileIconId,
                 level = summoner.summonerLevel,
@@ -170,7 +170,7 @@ class HomeViewModel @Inject constructor(
             )
         )
         addSummonerInfoUseCase(
-            DomainSummonerInfo(
+            SummonerInfoDomainModel(
                 puuid = summoner.puuid,
                 profile = summoner.profileIconId,
                 level = summoner.summonerLevel,
@@ -189,7 +189,7 @@ class HomeViewModel @Inject constructor(
     private suspend fun insertMostChampLocal(summoner: Summoner, champs: List<ChampInfo>) {
         addMyMostChamps(
             champs.map {
-                DomainMostChamps(
+                MostChampsDomainModel(
                     champName = it.name,
                     userPuuid = summoner.puuid,
                     champKda = it.kda,

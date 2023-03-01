@@ -2,7 +2,7 @@ package io.github.seoj17.canyongg.domain.usecase.champion
 
 import dagger.Reusable
 import io.github.seoj17.canyongg.data.repository.MyUserRepository
-import io.github.seoj17.canyongg.domain.model.DomainMostChamps
+import io.github.seoj17.canyongg.domain.model.MostChampsDomainModel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
@@ -11,10 +11,10 @@ import javax.inject.Inject
 class GetMostChampUseCase @Inject constructor(
     private val repository: MyUserRepository,
 ) {
-    operator fun invoke(): Flow<List<DomainMostChamps>> {
+    operator fun invoke(): Flow<List<MostChampsDomainModel>> {
         return repository
             .getMyMostChamps().map {
-                DomainMostChamps(it)
+                MostChampsDomainModel(it)
             }
     }
 }

@@ -7,9 +7,9 @@ import androidx.paging.PagingData
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import io.github.seoj17.canyongg.contract.UrlContract
-import io.github.seoj17.canyongg.domain.model.DomainBookmarkSummoner
-import io.github.seoj17.canyongg.domain.model.DomainMatches
-import io.github.seoj17.canyongg.domain.model.DomainRecentSummoner
+import io.github.seoj17.canyongg.domain.model.BookmarkSummonerDomainModel
+import io.github.seoj17.canyongg.domain.model.MatchesDomainModel
+import io.github.seoj17.canyongg.domain.model.RecentSummonerDomainModel
 import io.github.seoj17.canyongg.ui.detail.analysisTab.pages.AnalysisPageListAdapter
 import io.github.seoj17.canyongg.ui.detail.summaryTab.LoseParticipantsListAdapter
 import io.github.seoj17.canyongg.ui.detail.summaryTab.WinParticipantsListAdapter
@@ -42,14 +42,14 @@ fun ImageView.setSummonerRankEmblem(tier: String?) {
 }
 
 @BindingAdapter("bind:historyList")
-fun RecyclerView.setHistoryList(history: PagingData<DomainMatches>) {
+fun RecyclerView.setHistoryList(history: PagingData<MatchesDomainModel>) {
     coroutineScope?.launch {
         (adapter as? RecordListAdapter)?.submitData(SummonerMatchRecord(history))
     }
 }
 
 @BindingAdapter("bind:recentSummonerList")
-fun RecyclerView.setRecentSummonerList(recentSummoners: List<DomainRecentSummoner>?) {
+fun RecyclerView.setRecentSummonerList(recentSummoners: List<RecentSummonerDomainModel>?) {
     (adapter as? SearchSummonerListAdapter)?.submitList(
         RecentSummoners(recentSummoners ?: emptyList())
     )
@@ -66,7 +66,7 @@ fun RecyclerView.setLoseParticipantsList(participantsMatches: List<SummonerMatch
 }
 
 @BindingAdapter("bind:bookmarkSummonersList")
-fun RecyclerView.setBookmarkSummonersList(bookmarkSummoners: List<DomainBookmarkSummoner>?) {
+fun RecyclerView.setBookmarkSummonersList(bookmarkSummoners: List<BookmarkSummonerDomainModel>?) {
     (adapter as? BookmarkListAdapter)?.submitList(
         SummonerBookmark(bookmarkSummoners ?: emptyList())
     )

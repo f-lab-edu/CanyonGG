@@ -7,26 +7,26 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "summoner_info")
 data class SummonerInfoEntity(
     @PrimaryKey
-    @ColumnInfo(name = "summoner_puuid")
+    @ColumnInfo(name = "puuid")
     var puuid: String,
-    @ColumnInfo(name = "summoner_profile")
+    @ColumnInfo(name = "profile")
     var profile: Int,
-    @ColumnInfo(name = "summoner_level")
+    @ColumnInfo(name = "level")
     var level: Int,
-    @ColumnInfo(name = "summoner_name")
+    @ColumnInfo(name = "name")
     var name: String,
-    @ColumnInfo(name = "summoner_tier")
+    @ColumnInfo(name = "tier")
     var tier: String,
-    @ColumnInfo(name = "summoner_whole_match")
+    @ColumnInfo(name = "whole_match")
     var wholeMatch: Int,
-    @ColumnInfo(name = "summoner_win")
+    @ColumnInfo(name = "win")
     var win: Int,
-    @ColumnInfo(name = "summoner_lose")
+    @ColumnInfo(name = "lose")
     var lose: Int,
-    @ColumnInfo(name = "summoner_win_rate")
+    @ColumnInfo(name = "win_rate")
     var winRate: Int,
-    @ColumnInfo(name = "summoner_kda")
+    @ColumnInfo(name = "kda")
     var kda: Double,
-    @ColumnInfo(name = "summoner_largest_kill")
+    @ColumnInfo(name = "largest_kill")
     var largestKill: Int,
 )

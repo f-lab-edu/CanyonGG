@@ -13,7 +13,7 @@ import io.github.seoj17.canyongg.domain.usecase.recent.search.DeleteAllRecentSum
 import io.github.seoj17.canyongg.domain.usecase.recent.search.DeleteRecentSummonerUseCase
 import io.github.seoj17.canyongg.domain.usecase.recent.search.GetRecentSummonerUseCase
 import io.github.seoj17.canyongg.domain.usecase.user.GetUserInfoUseCase
-import io.github.seoj17.canyongg.domain.model.DomainRecentSummoner
+import io.github.seoj17.canyongg.domain.model.RecentSummonerDomainModel
 import io.github.seoj17.canyongg.utils.Event
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -37,7 +37,7 @@ class SearchSummonerViewModel @Inject constructor(
     private val _searchResult = MutableLiveData<Summoner?>()
     val searchResult: LiveData<Summoner?> = _searchResult
 
-    val recentSearch: LiveData<List<DomainRecentSummoner>> = getRecentSummonerUseCase().asLiveData()
+    val recentSearch: LiveData<List<RecentSummonerDomainModel>> = getRecentSummonerUseCase().asLiveData()
 
     private val _errorEvent = MutableLiveData<Event<Boolean>>()
     val errorEvent: LiveData<Event<Boolean>> = _errorEvent

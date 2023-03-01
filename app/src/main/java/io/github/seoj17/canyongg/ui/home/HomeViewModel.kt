@@ -8,7 +8,7 @@ import androidx.lifecycle.asLiveData
 import androidx.lifecycle.map
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
-import io.github.seoj17.canyongg.data.model.MainMyInfoDataModel
+import io.github.seoj17.canyongg.data.model.RegisterInfoDataModel
 import io.github.seoj17.canyongg.data.model.SummonerDataModel
 import io.github.seoj17.canyongg.domain.usecase.champion.AddMyMostChampsUseCase
 import io.github.seoj17.canyongg.domain.usecase.user.AddMyUserInfoUseCase
@@ -100,7 +100,7 @@ class HomeViewModel @Inject constructor(
         }
     }
 
-    private fun calcUserInfo(myMatches: List<MainMyInfoDataModel>): UserRecord {
+    private fun calcUserInfo(myMatches: List<RegisterInfoDataModel>): UserRecord {
         val wholeMatch = myMatches.size
         val realMatch = wholeMatch - myMatches.count { it.gameEndedInEarlySurrender }
         val kills = myMatches.sumOf { it.kills } + myMatches.sumOf { it.assists }
@@ -114,7 +114,7 @@ class HomeViewModel @Inject constructor(
         return UserRecord(wholeMatch, win, lose, winRate, kda, mostKill)
     }
 
-    private fun calcMostChampion(myMatches: List<MainMyInfoDataModel>): List<ChampInfo> {
+    private fun calcMostChampion(myMatches: List<RegisterInfoDataModel>): List<ChampInfo> {
         val champWinCntMap = mutableMapOf<String, Int>()
         val champKillMap = mutableMapOf<String, Int>()
         val champDeathMap = mutableMapOf<String, Int>()

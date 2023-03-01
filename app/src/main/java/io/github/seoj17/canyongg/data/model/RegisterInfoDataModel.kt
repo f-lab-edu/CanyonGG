@@ -2,7 +2,7 @@ package io.github.seoj17.canyongg.data.model
 
 import io.github.seoj17.canyongg.data.remote.response.match.ParticipantResponse
 
-data class MainMyInfoDataModel(
+data class RegisterInfoDataModel(
     val assists: Int,
     val championName: String,
     val deaths: Int,
@@ -13,8 +13,8 @@ data class MainMyInfoDataModel(
     val largestKill: Int,
 ) {
     companion object {
-        operator fun invoke(response: ParticipantResponse): MainMyInfoDataModel {
-            return MainMyInfoDataModel(
+        operator fun invoke(response: ParticipantResponse): RegisterInfoDataModel {
+            return RegisterInfoDataModel(
                 assists = response.assists,
                 championName = response.championName,
                 deaths = response.deaths,
@@ -26,7 +26,7 @@ data class MainMyInfoDataModel(
             )
         }
 
-        operator fun invoke(list: List<ParticipantResponse>): List<MainMyInfoDataModel> {
+        operator fun invoke(list: List<ParticipantResponse>): List<RegisterInfoDataModel> {
             return list.map { response ->
                 invoke(response)
             }

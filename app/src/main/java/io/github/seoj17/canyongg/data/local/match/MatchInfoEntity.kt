@@ -8,7 +8,7 @@ import io.github.seoj17.canyongg.data.remote.response.match.ParticipantResponse
 data class MatchInfoEntity(
     @ColumnInfo(name = "match_id")
     var matchId: String,
-    @ColumnInfo(name = "summoner_puuid")
+    @ColumnInfo(name = "puuid")
     var puuid: String,
     @ColumnInfo(name = "summoner_name")
     var summonerName: String,
@@ -28,11 +28,11 @@ data class MatchInfoEntity(
     var firstSpell: Int,
     @ColumnInfo(name = "second_spell")
     var secondSpell: Int,
-    @ColumnInfo(name = "summoner_kills")
+    @ColumnInfo(name = "kills")
     var kill: Int,
-    @ColumnInfo(name = "summoner_death")
+    @ColumnInfo(name = "death")
     var death: Int,
-    @ColumnInfo(name = "summoner_assist")
+    @ColumnInfo(name = "assist")
     var assist: Int,
     @ColumnInfo(name = "item1")
     var item1: Int,

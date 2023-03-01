@@ -19,12 +19,12 @@ import androidx.room.PrimaryKey
 
 data class MyMostChampEntity(
     @PrimaryKey
-    @ColumnInfo(name = "champ_name")
+    @ColumnInfo(name = "name")
     var champName: String,
     @ColumnInfo(name = "user_puuid")
     var userPuuid: String,
-    @ColumnInfo(name = "champ_kda")
+    @ColumnInfo(name = "kda")
     var champKda: Double,
-    @ColumnInfo(name = "champ_win_rate")
+    @ColumnInfo(name = "win_rate")
     var champWinRate: Int,
 )

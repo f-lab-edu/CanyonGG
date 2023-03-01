@@ -14,7 +14,7 @@ interface MyUserInfoDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(entity: List<MyUserInfoEntity>)
 
-    @Query("DELETE FROM my_user_info WHERE my_user_puuid = :puuid")
+    @Query("DELETE FROM my_user_info WHERE puuid = :puuid")
     suspend fun delete(puuid: String)
 
     @Query("DELETE FROM my_user_info")

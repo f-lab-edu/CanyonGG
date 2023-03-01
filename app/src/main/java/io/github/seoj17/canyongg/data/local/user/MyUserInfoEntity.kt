@@ -7,24 +7,24 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "my_user_info")
 data class MyUserInfoEntity(
     @PrimaryKey
-    @ColumnInfo(name = "my_user_puuid")
+    @ColumnInfo(name = "puuid")
     var puuid: String,
-    @ColumnInfo(name = "my_user_profile")
+    @ColumnInfo(name = "profile")
     var profile: Int,
-    @ColumnInfo(name = "my_user_level")
+    @ColumnInfo(name = "level")
     var level: Int,
-    @ColumnInfo(name = "my_user_name")
+    @ColumnInfo(name = "name")
     var name: String,
-    @ColumnInfo(name = "my_user_tier")
+    @ColumnInfo(name = "tier")
     var tier: String,
-    @ColumnInfo(name = "my_user_whole_match")
+    @ColumnInfo(name = "match")
     var wholeMatch: Int,
-    @ColumnInfo(name = "my_user_win")
+    @ColumnInfo(name = "win")
     var win: Int,
-    @ColumnInfo(name = "my_user_lose")
+    @ColumnInfo(name = "lose")
     var lose: Int,
-    @ColumnInfo(name = "my_user_win_rate")
+    @ColumnInfo(name = "rate")
     var winRate: Int,
-    @ColumnInfo(name = "my_user_kda")
+    @ColumnInfo(name = "kda")
     var kda: Double,
 )

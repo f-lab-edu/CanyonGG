@@ -4,13 +4,13 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "perks_info")
+@Entity(tableName = "perk_info")
 data class PerksEntity(
     @PrimaryKey
-    @ColumnInfo(name = "perk_id")
+    @ColumnInfo(name = "id")
     var id: Int,
-    @ColumnInfo(name = "perk_name")
+    @ColumnInfo(name = "name")
     var name: String,
-    @ColumnInfo(name = "perk_img_url")
+    @ColumnInfo(name = "img_url")
     var imgUrl: String,
 )

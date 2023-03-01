@@ -1,7 +1,7 @@
 package io.github.seoj17.canyongg.domain.model
 
 import io.github.seoj17.canyongg.data.local.match.MatchInfoEntity
-import io.github.seoj17.canyongg.data.model.DataMatches
+import io.github.seoj17.canyongg.data.model.MatchesDataModel
 
 data class MatchesDomainModel(
     val puuid: String,
@@ -37,7 +37,7 @@ data class MatchesDomainModel(
 ) {
     companion object {
         operator fun invoke(
-            data: DataMatches,
+            data: MatchesDataModel,
             firstSpell: String,
             secondSpell: String,
             mainRune: String,

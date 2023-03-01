@@ -7,7 +7,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
-import io.github.seoj17.canyongg.data.model.Summoner
+import io.github.seoj17.canyongg.data.model.SummonerDataModel
 import io.github.seoj17.canyongg.domain.usecase.summoner.AddSummonerUseCase
 import io.github.seoj17.canyongg.domain.usecase.recent.search.DeleteAllRecentSummonerUseCase
 import io.github.seoj17.canyongg.domain.usecase.recent.search.DeleteRecentSummonerUseCase
@@ -34,8 +34,8 @@ class SearchSummonerViewModel @Inject constructor(
     val summonerPuuid =
         SearchSummonerFragmentArgs.fromSavedStateHandle(savedStateHandle).summonerPuuid ?: ""
 
-    private val _searchResult = MutableLiveData<Summoner?>()
-    val searchResult: LiveData<Summoner?> = _searchResult
+    private val _searchResult = MutableLiveData<SummonerDataModel?>()
+    val searchResult: LiveData<SummonerDataModel?> = _searchResult
 
     val recentSearch: LiveData<List<RecentSummonerDomainModel>> = getRecentSummonerUseCase().asLiveData()
 

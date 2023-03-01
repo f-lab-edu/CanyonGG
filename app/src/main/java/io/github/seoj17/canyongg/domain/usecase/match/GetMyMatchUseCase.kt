@@ -1,7 +1,7 @@
 package io.github.seoj17.canyongg.domain.usecase.match
 
 import dagger.Reusable
-import io.github.seoj17.canyongg.data.model.MainMyInfo
+import io.github.seoj17.canyongg.data.model.MainMyInfoDataModel
 import io.github.seoj17.canyongg.data.repository.MatchesRepository
 import javax.inject.Inject
 
@@ -9,8 +9,8 @@ import javax.inject.Inject
 class GetMyMatchUseCase @Inject constructor(
     private val repository: MatchesRepository,
 ) {
-    suspend operator fun invoke(puuid: String, start: Int = 0): List<MainMyInfo> {
-        val myInfoList = mutableListOf<MainMyInfo>()
+    suspend operator fun invoke(puuid: String, start: Int = 0): List<MainMyInfoDataModel> {
+        val myInfoList = mutableListOf<MainMyInfoDataModel>()
         repository
             .getMatchInfo(puuid, start)
             .forEach { matchInfo ->
@@ -19,7 +19,7 @@ class GetMyMatchUseCase @Inject constructor(
                         it.puuid == puuid
                     }
                     ?.let {
-                        myInfoList.add(MainMyInfo(it))
+                        myInfoList.add(MainMyInfoDataModel(it))
                     }
             }
         return myInfoList

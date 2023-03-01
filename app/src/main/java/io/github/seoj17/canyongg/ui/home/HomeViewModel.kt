@@ -8,8 +8,8 @@ import androidx.lifecycle.asLiveData
 import androidx.lifecycle.map
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
-import io.github.seoj17.canyongg.data.model.MainMyInfo
-import io.github.seoj17.canyongg.data.model.Summoner
+import io.github.seoj17.canyongg.data.model.MainMyInfoDataModel
+import io.github.seoj17.canyongg.data.model.SummonerDataModel
 import io.github.seoj17.canyongg.domain.usecase.champion.AddMyMostChampsUseCase
 import io.github.seoj17.canyongg.domain.usecase.user.AddMyUserInfoUseCase
 import io.github.seoj17.canyongg.domain.usecase.summoner.AddSummonerInfoUseCase
@@ -100,7 +100,7 @@ class HomeViewModel @Inject constructor(
         }
     }
 
-    private fun calcUserInfo(myMatches: List<MainMyInfo>): UserRecord {
+    private fun calcUserInfo(myMatches: List<MainMyInfoDataModel>): UserRecord {
         val wholeMatch = myMatches.size
         val realMatch = wholeMatch - myMatches.count { it.gameEndedInEarlySurrender }
         val kills = myMatches.sumOf { it.kills } + myMatches.sumOf { it.assists }
@@ -114,7 +114,7 @@ class HomeViewModel @Inject constructor(
         return UserRecord(wholeMatch, win, lose, winRate, kda, mostKill)
     }
 
-    private fun calcMostChampion(myMatches: List<MainMyInfo>): List<ChampInfo> {
+    private fun calcMostChampion(myMatches: List<MainMyInfoDataModel>): List<ChampInfo> {
         val champWinCntMap = mutableMapOf<String, Int>()
         val champKillMap = mutableMapOf<String, Int>()
         val champDeathMap = mutableMapOf<String, Int>()
@@ -151,7 +151,7 @@ class HomeViewModel @Inject constructor(
     }
 
     private suspend fun insertUserInfoLocal(
-        summoner: Summoner,
+        summoner: SummonerDataModel,
         record: UserRecord,
         tier: String,
     ) {
@@ -186,7 +186,7 @@ class HomeViewModel @Inject constructor(
         )
     }
 
-    private suspend fun insertMostChampLocal(summoner: Summoner, champs: List<ChampInfo>) {
+    private suspend fun insertMostChampLocal(summoner: SummonerDataModel, champs: List<ChampInfo>) {
         addMyMostChamps(
             champs.map {
                 MostChampsDomainModel(

@@ -2,7 +2,7 @@ package io.github.seoj17.canyongg.data.model
 
 import io.github.seoj17.canyongg.data.local.match.MatchInfoEntity
 
-class DataMatches(
+class MatchesDataModel(
     val puuid: String,
     val matchId: String,
     val summonerName: String,
@@ -37,8 +37,8 @@ class DataMatches(
     companion object {
         operator fun invoke(
             entity: MatchInfoEntity,
-        ): DataMatches {
-            return DataMatches(
+        ): MatchesDataModel {
+            return MatchesDataModel(
                 puuid = entity.puuid,
                 matchId = entity.matchId,
                 summonerName = entity.summonerName,
@@ -74,7 +74,7 @@ class DataMatches(
 
         operator fun invoke(
             matchInfo: List<MatchInfoEntity>,
-        ): List<DataMatches> {
+        ): List<MatchesDataModel> {
             return matchInfo.map {
                 invoke(it)
             }

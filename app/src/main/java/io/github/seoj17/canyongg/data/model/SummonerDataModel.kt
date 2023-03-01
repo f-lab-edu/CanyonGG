@@ -2,7 +2,7 @@ package io.github.seoj17.canyongg.data.model
 
 import io.github.seoj17.canyongg.data.remote.response.summoner.SummonerResponse
 
-data class Summoner(
+data class SummonerDataModel(
     val id: String,
     val accountId: String,
     val puuid: String,
@@ -12,8 +12,8 @@ data class Summoner(
     val summonerLevel: Int,
 ) {
     companion object {
-        operator fun invoke(response: SummonerResponse): Summoner {
-            return Summoner(
+        operator fun invoke(response: SummonerResponse): SummonerDataModel {
+            return SummonerDataModel(
                 id = response.id,
                 accountId = response.accountId,
                 puuid = response.puuid,

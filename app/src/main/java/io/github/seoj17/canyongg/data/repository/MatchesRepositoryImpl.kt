@@ -5,8 +5,8 @@ import androidx.paging.PagingConfig
 import io.github.seoj17.canyongg.data.MatchPagingSource
 import io.github.seoj17.canyongg.data.local.match.MatchInfoDao
 import io.github.seoj17.canyongg.data.local.match.MatchInfoEntity
-import io.github.seoj17.canyongg.data.model.DataMatches
-import io.github.seoj17.canyongg.data.model.MatchInfo
+import io.github.seoj17.canyongg.data.model.MatchesDataModel
+import io.github.seoj17.canyongg.data.model.MatchInfoDataModel
 import io.github.seoj17.canyongg.data.remote.MatchesService
 import javax.inject.Inject
 
@@ -15,7 +15,7 @@ class MatchesRepositoryImpl @Inject constructor(
     private val matchInfoService: MatchInfoDao,
 ) : MatchesRepository {
 
-    override fun getMatches(puuid: String): Pager<Int, DataMatches> {
+    override fun getMatches(puuid: String): Pager<Int, MatchesDataModel> {
         return Pager(
             config = PagingConfig(
                 pageSize = NETWORK_PAGE_SIZE,
@@ -31,14 +31,14 @@ class MatchesRepositoryImpl @Inject constructor(
         return matchRemoteService.getMatchId(puuid, startIndex)
     }
 
-    override suspend fun getMatchInfo(puuid: String, startIndex: Int): List<MatchInfo> {
+    override suspend fun getMatchInfo(puuid: String, startIndex: Int): List<MatchInfoDataModel> {
         return getMatchId(puuid, startIndex).map { id ->
-            MatchInfo(matchRemoteService.getMatchInfo(id))
+            MatchInfoDataModel(matchRemoteService.getMatchInfo(id))
         }
     }
 
-    override suspend fun getMatchInfo(matchId: String): MatchInfo {
-        return MatchInfo(matchRemoteService.getMatchInfo(matchId))
+    override suspend fun getMatchInfo(matchId: String): MatchInfoDataModel {
+        return MatchInfoDataModel(matchRemoteService.getMatchInfo(matchId))
     }
 
     override suspend fun getMyMatchInfo(puuid: String): List<MatchInfoEntity> {

@@ -2,7 +2,7 @@ package io.github.seoj17.canyongg.data.model
 
 import io.github.seoj17.canyongg.data.remote.response.summoner.TierResponse
 
-data class SummonerTier(
+data class SummonerTierDataModel(
     val leagueId: String,
     val leaguePoints: Int,
     val losses: Int,
@@ -13,8 +13,8 @@ data class SummonerTier(
     val wins: Int,
 ) {
     companion object {
-        operator fun invoke(response: TierResponse): SummonerTier {
-            return SummonerTier(
+        operator fun invoke(response: TierResponse): SummonerTierDataModel {
+            return SummonerTierDataModel(
                 leagueId = response.leagueId,
                 leaguePoints = response.leaguePoints,
                 losses = response.losses,

@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
-import io.github.seoj17.canyongg.data.model.Summoner
+import io.github.seoj17.canyongg.data.model.SummonerDataModel
 import io.github.seoj17.canyongg.domain.usecase.user.GetUserInfoUseCase
 import io.github.seoj17.canyongg.utils.Event
 import kotlinx.coroutines.launch
@@ -16,8 +16,8 @@ class RegisterSummonerViewModel @Inject constructor(
     private val getUserInfoUseCase: GetUserInfoUseCase,
 ) : ViewModel() {
 
-    private val _searchResult = MutableLiveData<Summoner?>()
-    val searchResult: LiveData<Summoner?> = _searchResult
+    private val _searchResult = MutableLiveData<SummonerDataModel?>()
+    val searchResult: LiveData<SummonerDataModel?> = _searchResult
 
     private val _errorEvent = MutableLiveData<Event<Boolean>>()
     val errorEvent: LiveData<Event<Boolean>> = _errorEvent

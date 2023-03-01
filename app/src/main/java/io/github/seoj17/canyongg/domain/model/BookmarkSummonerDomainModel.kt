@@ -13,8 +13,8 @@ data class BookmarkSummonerDomainModel(
             return BookmarkSummonerDomainModel(
                 puuid = entity.puuid,
                 summonerName = entity.summonerName,
-                summonerLevel = entity.summonerLevel,
-                summonerIcon = entity.summonerIcon,
+                summonerLevel = entity.level,
+                summonerIcon = entity.icon,
             )
         }
 

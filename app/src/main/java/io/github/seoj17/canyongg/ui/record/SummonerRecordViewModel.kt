@@ -9,7 +9,7 @@ import androidx.lifecycle.map
 import androidx.lifecycle.viewModelScope
 import androidx.paging.cachedIn
 import dagger.hilt.android.lifecycle.HiltViewModel
-import io.github.seoj17.canyongg.data.model.Summoner
+import io.github.seoj17.canyongg.data.model.SummonerDataModel
 import io.github.seoj17.canyongg.domain.usecase.bookmark.AddBookmarkSummonerUseCase
 import io.github.seoj17.canyongg.domain.usecase.summoner.AddSummonerInfoUseCase
 import io.github.seoj17.canyongg.domain.usecase.bookmark.CheckBookmarkedSummonerUseCase
@@ -87,7 +87,7 @@ class SummonerRecordViewModel @Inject constructor(
 
     private fun calcSummonerInfo(
         myMatches: List<ParticipantsMatches>,
-        summonerInfo: Summoner,
+        summonerInfo: SummonerDataModel,
         tier: String,
     ) {
         val wholeMatch = myMatches.size

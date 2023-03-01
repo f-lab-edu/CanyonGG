@@ -2,7 +2,7 @@ package io.github.seoj17.canyongg.data.repository
 
 import io.github.seoj17.canyongg.data.local.perks.PerksDao
 import io.github.seoj17.canyongg.data.local.perks.PerksEntity
-import io.github.seoj17.canyongg.data.model.DataPerks
+import io.github.seoj17.canyongg.data.model.PerkDataModel
 import io.github.seoj17.canyongg.data.remote.DataCenterService
 import javax.inject.Inject
 
@@ -14,12 +14,12 @@ class PerksRepositoryImpl @Inject constructor(
         return perksDao.getPerk(id)
     }
 
-    override suspend fun getPerksList(): List<DataPerks> {
-        val list = mutableListOf<DataPerks>()
+    override suspend fun getPerksList(): List<PerkDataModel> {
+        val list = mutableListOf<PerkDataModel>()
         dataCenterService.getPerks().forEach {
-            list.add(DataPerks(it))
+            list.add(PerkDataModel(it))
             it.slots.forEach { slot ->
-                list.addAll(DataPerks(slot.runes))
+                list.addAll(PerkDataModel(slot.runes))
             }
         }
         return list.toList()

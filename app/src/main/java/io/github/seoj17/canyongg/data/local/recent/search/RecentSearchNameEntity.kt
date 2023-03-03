@@ -8,7 +8,7 @@ import androidx.room.PrimaryKey
 data class RecentSearchNameEntity(
     @PrimaryKey
     @ColumnInfo(name = "puuid")
-    var summonerPuuid: String,
+    val summonerPuuid: String,
     @ColumnInfo(name = "summoner_name")
-    var summonerName: String,
+    val summonerName: String,
 )

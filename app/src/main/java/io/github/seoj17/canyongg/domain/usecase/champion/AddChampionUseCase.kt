@@ -1,7 +1,6 @@
 package io.github.seoj17.canyongg.domain.usecase.champion
 
 import dagger.Reusable
-import io.github.seoj17.canyongg.data.local.champions.ChampionsEntity
 import io.github.seoj17.canyongg.data.repository.ChampionsRepository
 import io.github.seoj17.canyongg.domain.model.ChampionsDomainModel
 import javax.inject.Inject
@@ -12,7 +11,7 @@ class AddChampionUseCase @Inject constructor(
 ) {
     suspend operator fun invoke(champion: ChampionsDomainModel) {
         repository.addChampion(
-            ChampionsEntity(champion.key, champion.name)
+            ChampionsDomainModel.toEntity(champion)
         )
     }
 }

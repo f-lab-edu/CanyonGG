@@ -21,8 +21,8 @@ interface SummonerInfoDao {
     suspend fun deleteAll()
 
     @Query("SELECT * FROM summoner_info WHERE puuid = :puuid")
-    fun getSummonerInfo(puuid: String): Flow<SummonerInfoEntity?>
+    fun get(puuid: String): Flow<SummonerInfoEntity?>
 
-    @Query("SELECT EXISTS(SELECT * FROM my_user_info WHERE puuid = :puuid)")
+    @Query("SELECT EXISTS(SELECT * FROM summoner_info WHERE puuid = :puuid)")
     suspend fun isMyUser(puuid: String): Boolean
 }

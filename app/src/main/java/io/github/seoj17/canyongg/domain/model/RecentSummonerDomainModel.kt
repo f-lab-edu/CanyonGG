@@ -1,21 +1,21 @@
 package io.github.seoj17.canyongg.domain.model
 
-import io.github.seoj17.canyongg.data.local.recent.search.RecentSearchNameEntity
+import io.github.seoj17.canyongg.data.model.RecentSearchNameDataModel
 
 data class RecentSummonerDomainModel(
     val name: String,
     val puuid: String,
 ) {
     companion object {
-        operator fun invoke(entity: RecentSearchNameEntity): RecentSummonerDomainModel {
+        operator fun invoke(data: RecentSearchNameDataModel): RecentSummonerDomainModel {
             return RecentSummonerDomainModel(
-                name = entity.summonerName,
-                puuid = entity.summonerPuuid,
+                name = data.summonerName,
+                puuid = data.summonerPuuid,
             )
         }
 
-        operator fun invoke(entity: List<RecentSearchNameEntity>): List<RecentSummonerDomainModel> {
-            return entity.map {
+        operator fun invoke(data: List<RecentSearchNameDataModel>): List<RecentSummonerDomainModel> {
+            return data.map {
                 invoke(it)
             }
         }

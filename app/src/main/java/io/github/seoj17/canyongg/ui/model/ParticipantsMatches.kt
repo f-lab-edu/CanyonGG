@@ -1,6 +1,5 @@
 package io.github.seoj17.canyongg.ui.model
 
-import android.annotation.SuppressLint
 import androidx.recyclerview.widget.DiffUtil
 import io.github.seoj17.canyongg.data.remote.response.match.Challenges
 import io.github.seoj17.canyongg.data.remote.response.match.Perks
@@ -65,7 +64,6 @@ data class ParticipantsMatches(
                 return oldItem.summonerId == newItem.summonerId
             }
 
-            @SuppressLint("DiffUtilEquals")
             override fun areContentsTheSame(
                 oldItem: ParticipantsMatches,
                 newItem: ParticipantsMatches,
@@ -74,7 +72,10 @@ data class ParticipantsMatches(
             }
         }
 
-        operator fun invoke(domain: SummonerMatchInfoDomainModel, rank: String): ParticipantsMatches {
+        operator fun invoke(
+            domain: SummonerMatchInfoDomainModel,
+            rank: String,
+        ): ParticipantsMatches {
             return ParticipantsMatches(
                 rank = rank,
                 assists = domain.assists,

@@ -15,8 +15,8 @@ class GetSummonerInfoUseCase @Inject constructor(
         return summonerInfoRepository
             .getSummonerInfo(puuid)
             .map {
-                it?.let { entity ->
-                    SummonerInfoDomainModel(entity)
+                it?.let { data ->
+                    SummonerInfoDomainModel(data)
                 }
             }
     }

@@ -2,10 +2,12 @@ package io.github.seoj17.canyongg.data.repository
 
 import io.github.seoj17.canyongg.data.local.recent.search.RecentSearchDao
 import io.github.seoj17.canyongg.data.local.recent.search.RecentSearchNameEntity
+import io.github.seoj17.canyongg.data.model.RecentSearchNameDataModel
 import io.github.seoj17.canyongg.data.model.SummonerDataModel
 import io.github.seoj17.canyongg.data.model.SummonerTierDataModel
 import io.github.seoj17.canyongg.data.remote.SummonerService
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
 class SummonerRepositoryImpl @Inject constructor(
@@ -13,9 +15,11 @@ class SummonerRepositoryImpl @Inject constructor(
     private val localService: RecentSearchDao,
 ) : SummonerRepository {
     override suspend fun getSummonerInfo(userName: String): SummonerDataModel? {
-        return remoteService.getSummoner(userName)?.let {
-            SummonerDataModel(it)
-        }
+        return remoteService
+            .getSummoner(userName)
+            ?.let {
+                SummonerDataModel(it)
+            }
     }
 
     override suspend fun getTier(id: String): SummonerTierDataModel? {
@@ -31,8 +35,12 @@ class SummonerRepositoryImpl @Inject constructor(
         return localService.insert(RecentSearchNameEntity(puuid, name))
     }
 
-    override fun getRecentSummoner(): Flow<List<RecentSearchNameEntity>> {
-        return localService.getSummoners()
+    override fun getRecentSummoner(): Flow<List<RecentSearchNameDataModel>> {
+        return localService
+            .get()
+            .map {
+                RecentSearchNameDataModel(it)
+            }
     }
 
     override suspend fun getRotationChamps(): List<Int> {

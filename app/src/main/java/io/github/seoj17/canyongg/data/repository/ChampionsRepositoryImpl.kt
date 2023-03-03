@@ -8,7 +8,7 @@ import javax.inject.Inject
 
 class ChampionsRepositoryImpl @Inject constructor(
     private val dataCenterService: DataCenterService,
-    private val championsDao: ChampionsDao,
+    private val championsLocal: ChampionsDao,
 ) : ChampionsRepository {
     override suspend fun getChampionList(): List<ChampionsDataModel> {
         return dataCenterService
@@ -24,14 +24,14 @@ class ChampionsRepositoryImpl @Inject constructor(
     }
 
     override suspend fun getChampion(id: Int): String {
-        return championsDao.getChampion(id).name
+        return championsLocal.get(id).name
     }
 
     override suspend fun addChampionList(entities: List<ChampionsEntity>) {
-        championsDao.insert(entities)
+        championsLocal.insert(entities)
     }
 
     override suspend fun addChampion(entity: ChampionsEntity) {
-        championsDao.insert(entity)
+        championsLocal.insert(entity)
     }
 }

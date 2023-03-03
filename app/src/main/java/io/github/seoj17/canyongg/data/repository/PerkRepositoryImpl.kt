@@ -1,17 +1,17 @@
 package io.github.seoj17.canyongg.data.repository
 
-import io.github.seoj17.canyongg.data.local.perks.PerksDao
-import io.github.seoj17.canyongg.data.local.perks.PerksEntity
+import io.github.seoj17.canyongg.data.local.perks.PerkDao
+import io.github.seoj17.canyongg.data.local.perks.PerkEntity
 import io.github.seoj17.canyongg.data.model.PerkDataModel
 import io.github.seoj17.canyongg.data.remote.DataCenterService
 import javax.inject.Inject
 
-class PerksRepositoryImpl @Inject constructor(
+class PerkRepositoryImpl @Inject constructor(
     private val dataCenterService: DataCenterService,
-    private val perksDao: PerksDao,
-) : PerksRepository {
-    override suspend fun getPerk(id: Int): PerksEntity {
-        return perksDao.getPerk(id)
+    private val perksDao: PerkDao,
+) : PerkRepository {
+    override suspend fun getPerk(id: Int): PerkEntity {
+        return perksDao.get(id)
     }
 
     override suspend fun getPerksList(): List<PerkDataModel> {
@@ -25,11 +25,11 @@ class PerksRepositoryImpl @Inject constructor(
         return list.toList()
     }
 
-    override suspend fun addPerksList(entity: List<PerksEntity>) {
+    override suspend fun addPerksList(entity: List<PerkEntity>) {
         perksDao.insert(entity)
     }
 
-    override suspend fun addPerk(entity: PerksEntity) {
+    override suspend fun addPerk(entity: PerkEntity) {
         perksDao.insert(entity)
     }
 }

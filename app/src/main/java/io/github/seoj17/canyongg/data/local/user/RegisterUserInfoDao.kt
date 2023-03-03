@@ -7,19 +7,20 @@ import androidx.room.Query
 import kotlinx.coroutines.flow.Flow
 
 @Dao
-interface MyMostChampDao {
+interface RegisterUserInfoDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insert(entity: MyMostChampEntity)
+    suspend fun insert(entity: RegisterUserInfoEntity)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insert(entity: List<MyMostChampEntity>)
+    suspend fun insert(entity: List<RegisterUserInfoEntity>)
 
-    @Query("DELETE FROM my_user_most_champ WHERE user_puuid = :puuid")
+    @Query("DELETE FROM register_user_info WHERE puuid = :puuid")
     suspend fun delete(puuid: String)
 
-    @Query("DELETE FROM my_user_most_champ")
+    @Query("DELETE FROM register_user_info")
     suspend fun deleteAll()
 
-    @Query("SELECT * FROM my_user_most_champ")
-    fun getMostChamps(): Flow<List<MyMostChampEntity>>
+    @Query("SELECT * FROM register_user_info")
+    fun get(): Flow<RegisterUserInfoEntity?>
+
 }

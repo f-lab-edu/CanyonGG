@@ -5,12 +5,12 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity(tableName = "perk_info")
-data class PerksEntity(
+data class PerkEntity(
     @PrimaryKey
     @ColumnInfo(name = "id")
-    var id: Int,
+    val id: Int,
     @ColumnInfo(name = "name")
-    var name: String,
+    val name: String,
     @ColumnInfo(name = "img_url")
-    var imgUrl: String,
+    val imgUrl: String,
 )

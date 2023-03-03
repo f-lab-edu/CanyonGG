@@ -4,8 +4,8 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "my_user_info")
-data class MyUserInfoEntity(
+@Entity(tableName = "register_user_info")
+data class RegisterUserInfoEntity(
     @PrimaryKey
     @ColumnInfo(name = "puuid")
     var puuid: String,

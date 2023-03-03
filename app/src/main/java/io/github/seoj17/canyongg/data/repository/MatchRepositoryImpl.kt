@@ -5,17 +5,17 @@ import androidx.paging.PagingConfig
 import io.github.seoj17.canyongg.data.MatchPagingSource
 import io.github.seoj17.canyongg.data.local.match.MatchInfoDao
 import io.github.seoj17.canyongg.data.local.match.MatchInfoEntity
-import io.github.seoj17.canyongg.data.model.MatchesDataModel
+import io.github.seoj17.canyongg.data.model.MatchDataModel
 import io.github.seoj17.canyongg.data.model.MatchInfoDataModel
 import io.github.seoj17.canyongg.data.remote.MatchesService
 import javax.inject.Inject
 
-class MatchesRepositoryImpl @Inject constructor(
+class MatchRepositoryImpl @Inject constructor(
     private val matchRemoteService: MatchesService,
     private val matchInfoService: MatchInfoDao,
-) : MatchesRepository {
+) : MatchRepository {
 
-    override fun getMatches(puuid: String): Pager<Int, MatchesDataModel> {
+    override fun getMatches(puuid: String): Pager<Int, MatchInfoDataModel> {
         return Pager(
             config = PagingConfig(
                 pageSize = NETWORK_PAGE_SIZE,
@@ -31,22 +31,24 @@ class MatchesRepositoryImpl @Inject constructor(
         return matchRemoteService.getMatchId(puuid, startIndex)
     }
 
-    override suspend fun getMatchInfo(puuid: String, startIndex: Int): List<MatchInfoDataModel> {
-        return getMatchId(puuid, startIndex).map { id ->
-            MatchInfoDataModel(matchRemoteService.getMatchInfo(id))
-        }
+    override suspend fun getMatchInfo(matchId: String): MatchDataModel {
+        return MatchDataModel(matchRemoteService.getMatchInfo(matchId))
     }
 
-    override suspend fun getMatchInfo(matchId: String): MatchInfoDataModel {
-        return MatchInfoDataModel(matchRemoteService.getMatchInfo(matchId))
+    override suspend fun getRegisterUserMatchInfo(puuid: String): List<MatchInfoDataModel> {
+        return matchInfoService
+            .getMatchInfo(puuid)
+            .map {
+                MatchInfoDataModel(it)
+            }
     }
 
-    override suspend fun getMyMatchInfo(puuid: String): List<MatchInfoEntity> {
-        return matchInfoService.getMyMatchInfo(puuid)
-    }
-
-    override suspend fun getParticipantsMatchInfo(matchId: String): List<MatchInfoEntity> {
-        return matchInfoService.getParticipantsMatchInfo(matchId)
+    override suspend fun getParticipantsMatchInfo(matchId: String): List<MatchInfoDataModel> {
+        return matchInfoService
+            .getParticipantsMatchInfo(matchId)
+            .map {
+                MatchInfoDataModel(it)
+            }
     }
 
     override suspend fun addMatchInfo(entity: MatchInfoEntity) {

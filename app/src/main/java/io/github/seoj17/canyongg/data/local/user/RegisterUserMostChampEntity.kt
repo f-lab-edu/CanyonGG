@@ -6,25 +6,25 @@ import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
 
 @Entity(
-    tableName = "my_user_most_champ",
+    tableName = "register_user_most_champ",
     foreignKeys = [
         ForeignKey(
-            entity = MyUserInfoEntity::class,
-            parentColumns = arrayOf("my_user_puuid"),
+            entity = RegisterUserInfoEntity::class,
+            parentColumns = arrayOf("puuid"),
             childColumns = arrayOf("user_puuid"),
             onDelete = ForeignKey.CASCADE,
         )
     ]
 )
 
-data class MyMostChampEntity(
+data class RegisterUserMostChampEntity(
     @PrimaryKey
     @ColumnInfo(name = "name")
-    var champName: String,
+    val champName: String,
     @ColumnInfo(name = "user_puuid")
-    var userPuuid: String,
+    val userPuuid: String,
     @ColumnInfo(name = "kda")
-    var champKda: Double,
+    val champKda: Double,
     @ColumnInfo(name = "win_rate")
-    var champWinRate: Int,
+    val champWinRate: Int,
 )

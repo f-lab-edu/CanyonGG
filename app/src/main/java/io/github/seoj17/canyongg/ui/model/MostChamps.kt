@@ -23,5 +23,14 @@ data class MostChamps(
                 invoke(it)
             }
         }
+
+        fun toDomainModel(summoner: Summoner, champInfo: ChampInfo): MostChampsDomainModel {
+            return MostChampsDomainModel(
+                champName = champInfo.name,
+                userPuuid = summoner.puuid,
+                champKda = champInfo.kda,
+                champWinRate = champInfo.winRate,
+            )
+        }
     }
 }

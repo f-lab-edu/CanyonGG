@@ -8,25 +8,25 @@ import androidx.room.PrimaryKey
 data class SummonerInfoEntity(
     @PrimaryKey
     @ColumnInfo(name = "puuid")
-    var puuid: String,
+    val puuid: String,
     @ColumnInfo(name = "profile")
-    var profile: Int,
+    val profile: Int,
     @ColumnInfo(name = "level")
-    var level: Int,
+    val level: Int,
     @ColumnInfo(name = "name")
-    var name: String,
+    val name: String,
     @ColumnInfo(name = "tier")
-    var tier: String,
+    val tier: String,
     @ColumnInfo(name = "whole_match")
-    var wholeMatch: Int,
+    val wholeMatch: Int,
     @ColumnInfo(name = "win")
-    var win: Int,
+    val win: Int,
     @ColumnInfo(name = "lose")
-    var lose: Int,
+    val lose: Int,
     @ColumnInfo(name = "win_rate")
-    var winRate: Int,
+    val winRate: Int,
     @ColumnInfo(name = "kda")
-    var kda: Double,
+    val kda: Double,
     @ColumnInfo(name = "largest_kill")
-    var largestKill: Int,
+    val largestKill: Int,
 )

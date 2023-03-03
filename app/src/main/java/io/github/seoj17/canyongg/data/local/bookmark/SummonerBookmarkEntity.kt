@@ -9,11 +9,11 @@ import androidx.room.PrimaryKey
 data class SummonerBookmarkEntity(
     @PrimaryKey
     @ColumnInfo(name = "puuid")
-    var puuid: String,
+    val puuid: String,
     @ColumnInfo(name = "summoner_name")
-    var summonerName: String,
+    val summonerName: String,
     @ColumnInfo(name = "summoner_level")
-    var level: Int,
+    val level: Int,
     @ColumnInfo(name = "icon")
-    var icon: Int,
+    val icon: Int,
 )

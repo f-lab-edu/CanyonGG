@@ -31,5 +31,25 @@ data class SummonerInfo(
                 largestKill = domain.largestKill,
             )
         }
+
+        fun toDomainModel(
+            summoner: Summoner,
+            record: UserRecord,
+            tier: String,
+        ): SummonerInfoDomainModel {
+            return SummonerInfoDomainModel(
+                puuid = summoner.puuid,
+                profile = summoner.profileIconId,
+                level = summoner.summonerLevel,
+                name = summoner.name,
+                tier = tier,
+                wholeMatch = record.wholeMatch,
+                win = record.winCount,
+                lose = record.loseCount,
+                winRate = record.winRate,
+                kda = record.kda,
+                largestKill = record.largestKill,
+            )
+        }
     }
 }

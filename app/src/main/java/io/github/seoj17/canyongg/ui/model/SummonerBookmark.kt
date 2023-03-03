@@ -29,7 +29,7 @@ data class SummonerBookmark(
 
         operator fun invoke(domain: BookmarkSummonerDomainModel): SummonerBookmark {
             return SummonerBookmark(
-                summonerPuuid = domain.summonerPuuid,
+                summonerPuuid = domain.puuid,
                 summonerName = domain.summonerName,
                 summonerLevel = domain.summonerLevel,
                 summonerIcon = domain.summonerIcon,
@@ -40,6 +40,15 @@ data class SummonerBookmark(
             return domain.map {
                 invoke(it)
             }
+        }
+
+        fun toDomainModel(summoner: SummonerInfo): BookmarkSummonerDomainModel {
+            return BookmarkSummonerDomainModel(
+                puuid = summoner.puuid,
+                summonerName = summoner.name,
+                summonerLevel = summoner.level,
+                summonerIcon = summoner.profile,
+            )
         }
     }
 }

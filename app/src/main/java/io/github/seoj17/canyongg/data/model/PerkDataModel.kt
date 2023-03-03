@@ -1,5 +1,6 @@
 package io.github.seoj17.canyongg.data.model
 
+import io.github.seoj17.canyongg.data.local.perks.PerkEntity
 import io.github.seoj17.canyongg.data.remote.response.perks.PerksResponse
 import io.github.seoj17.canyongg.data.remote.response.perks.Rune
 
@@ -14,6 +15,14 @@ data class PerkDataModel(
                 id = response.id,
                 name = response.key,
                 imgUrl = response.icon,
+            )
+        }
+
+        operator fun invoke(entity: PerkEntity): PerkDataModel {
+            return PerkDataModel(
+                id = entity.id,
+                name = entity.name,
+                imgUrl = entity.imgUrl,
             )
         }
 

@@ -1,6 +1,7 @@
 package io.github.seoj17.canyongg.domain.model
 
 import io.github.seoj17.canyongg.data.local.summoner.SummonerInfoEntity
+import io.github.seoj17.canyongg.data.model.SummonerInfoDataModel
 
 data class SummonerInfoDomainModel(
     val puuid: String,
@@ -16,19 +17,35 @@ data class SummonerInfoDomainModel(
     val largestKill: Int,
 ) {
     companion object {
-        operator fun invoke(entity: SummonerInfoEntity): SummonerInfoDomainModel {
+        operator fun invoke(data: SummonerInfoDataModel): SummonerInfoDomainModel {
             return SummonerInfoDomainModel(
-                puuid = entity.puuid,
-                profile = entity.profile,
-                level = entity.level,
-                name = entity.name,
-                tier = entity.tier,
-                wholeMatch = entity.wholeMatch,
-                win = entity.win,
-                lose = entity.lose,
-                winRate = entity.winRate,
-                kda = entity.kda,
-                largestKill = entity.largestKill
+                puuid = data.puuid,
+                profile = data.profile,
+                level = data.level,
+                name = data.name,
+                tier = data.tier,
+                wholeMatch = data.wholeMatch,
+                win = data.win,
+                lose = data.lose,
+                winRate = data.winRate,
+                kda = data.kda,
+                largestKill = data.largestKill
+            )
+        }
+
+        fun toEntity(domain: SummonerInfoDomainModel): SummonerInfoEntity {
+            return SummonerInfoEntity(
+                puuid = domain.puuid,
+                profile = domain.profile,
+                level = domain.level,
+                name = domain.name,
+                tier = domain.tier,
+                wholeMatch = domain.wholeMatch,
+                win = domain.win,
+                lose = domain.lose,
+                winRate = domain.winRate,
+                kda = domain.kda,
+                largestKill = domain.largestKill
             )
         }
     }

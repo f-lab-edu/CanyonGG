@@ -39,7 +39,7 @@ class HomeFragment : Fragment() {
             }
 
             searchSummonerTab.setClickListener {
-                findNavController().navigate(HomeFragmentDirections.actionGlobalSearchNavigation())
+                findNavController().navigate(HomeFragmentDirections.actionHomeToSearchGraph())
             }
 
             summonerTab.setClickListener {
@@ -62,7 +62,7 @@ class HomeFragment : Fragment() {
 
             detailMyInfo.setOnClickListener {
                 findNavController().navigate(
-                    HomeFragmentDirections.actionGlobalSearchNavigation(
+                    HomeFragmentDirections.actionHomeToSearchGraph(
                         summonerName = viewModel.userInfo.value?.name,
                         summonerPuuid = viewModel.userInfo.value?.puuid,
                     )
@@ -75,7 +75,7 @@ class HomeFragment : Fragment() {
                 }
             ) { name, puuid ->
                 findNavController().navigate(
-                    HomeFragmentDirections.actionGlobalSearchNavigation(
+                    HomeFragmentDirections.actionHomeToSearchGraph(
                         summonerName = name,
                         summonerPuuid = puuid,
                     )
